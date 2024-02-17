@@ -9,15 +9,15 @@
   nixpkgs.config.allowUnfree = true; 
 
   imports = [
-     ./gnome.nix
-     ./firefox.nix
-     ./zsh.nix
-     ./kitty.nix
-     ./omp.nix
-     ./neovim.nix
-     ./vscode.nix
-     ./fzf.nix
-     ./xmrig.nix
+     ../../home/gnome.nix
+     ../../home/firefox.nix
+     ../../home/zsh.nix
+     ../../home/kitty.nix
+     ../../home/omp.nix
+     ../../home/neovim.nix
+     ../../home/vscode.nix
+     ../../home/fzf.nix
+     ../../home/xmrig.nix
   ];
 
   home.packages = with pkgs; [

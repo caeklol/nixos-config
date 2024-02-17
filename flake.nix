@@ -51,11 +51,11 @@
     homeManagerModules = import ./modules/home-manager;
 
     nixosConfigurations = {
-      desktop = mkNixos [ ./hosts/desktop ];
+      desktop = mkNixos [ ./hosts/desktop/configuration.nix ];
     };
 
     homeConfigurations = {
-      "caek@desktop" = mkHome [ ./home/desktop ];
+      "caek@desktop" = mkHome [ ./hosts/desktop/home.nix ];
     };
   };
 }
