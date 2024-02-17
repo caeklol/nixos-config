@@ -8,6 +8,6 @@
 		home-manager
 		vim
 	];
-	shell = pkgs.zsh;
+	shell = pkgs.bash;
   };
 }

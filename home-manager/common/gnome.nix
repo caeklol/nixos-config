@@ -32,8 +32,18 @@
 			];
       		};
 
+		"org/gnome/shell/extensions/user-theme" = {
+			name = "Catppuccin-Mocha-Standard-Teal-Dark";
+		};
+
 		"org/gnome/desktop/interface" = {
 			enable-animations = true;
+			gtk-theme = "Catppuccin-Mocha-Standard-Teal-Dark";
+		};
+
+		"org/gnome/desktop/peripherals/mouse" = {
+			accel-profile = "flat";
+			speed = -0.338521;
 		};
       
     };

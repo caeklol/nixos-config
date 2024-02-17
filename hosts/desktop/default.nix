@@ -3,10 +3,10 @@
   imports = [
 	./hardware-configuration.nix
 	../common
+	../common/unfree.nix
 	../common/desktop
 	../common/desktop/audio.nix
 	../common/desktop/nvidia.nix
-	../common/optional/zsh.nix
   ];
 
   networking = {
@@ -15,10 +15,4 @@
 	nameservers = [ "1.1.1.1" ];
   };
 
-  environment = { 
-	systemPackages = with pkgs; [
-		vim
-		git
-	];
-  };
 }

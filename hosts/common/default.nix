@@ -7,7 +7,6 @@
   ...
 }: {
   imports = [
-     inputs.home-manager.nixosModules.home-manager
      ./tailscale.nix
      ./locale.nix
      ./caek.nix 
@@ -24,10 +23,18 @@
 
     config = {
       allowUnfree = true;
+      allowUnfreePredicate = _: true;
     };
   };
 
-  environment.enableAllTerminfo = true;
+  environment = {
+	enableAllTerminfo = true;
+	systemPackages = with pkgs; [
+		vim
+		git
+	];
+  };
+
   hardware.enableRedistributableFirmware = true;
   security.rtkit.enable = true;
   boot.loader.systemd-boot.enable = true;

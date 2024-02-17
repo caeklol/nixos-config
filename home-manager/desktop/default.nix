@@ -1,23 +1,22 @@
-{ config, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 {
 
   home.username = "caek";
   home.homeDirectory = "/home/caek";
 
-  home.stateVersion = "22.05";
-
-  nixpkgs.config.allowUnfree = true; 
+  home.stateVersion = "22.11";
 
   imports = [
-     ../../home/gnome.nix
-     ../../home/firefox.nix
-     ../../home/zsh.nix
-     ../../home/kitty.nix
-     ../../home/omp.nix
-     ../../home/neovim.nix
-     ../../home/vscode.nix
-     ../../home/fzf.nix
-     ../../home/xmrig.nix
+     ../common/unfree.nix
+     ../common/bash.nix
+     ../common/gnome.nix
+     ../common/firefox.nix
+     ../common/kitty.nix
+     ../common/omp.nix
+     ../common/neovim.nix
+     ../common/vscode.nix
+     ../common/fzf.nix
+     ../common/xmrig.nix
   ];
 
   home.packages = with pkgs; [
@@ -75,13 +74,12 @@
   xdg.userDirs.templates = "${config.home.homeDirectory}";
   xdg.userDirs.videos = "${config.home.homeDirectory}/videos";
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    BROWSER = "firefox";
-    TERMINAL = "kitty";
-  };
+  #home.sessionVariables = {
+  #  EDITOR = "nvim";
+  #  BROWSER = "firefox";
+  #  TERMINAL = "kitty";
+  #};
 
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
 

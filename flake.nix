@@ -5,15 +5,12 @@
   description = "caek's NixOS Config";
 
   inputs = {
-    # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-23.05";
+    home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # nur
     nur.url = "github:nix-community/NUR";
   };
 
@@ -42,20 +39,20 @@
         inherit modules pkgs;
         extraSpecialArgs = { inherit inputs outputs; };
     };
+
+
   in {
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     overlays = import ./overlays {inherit inputs;};
-    nixosModules = import ./modules/nixos;
-    homeManagerModules = import ./modules/home-manager;
-
+    
     nixosConfigurations = {
-      desktop = mkNixos [ ./hosts/desktop/configuration.nix ];
+       desktop = mkNixos [ ./hosts/desktop ];
     };
 
     homeConfigurations = {
-      "caek@desktop" = mkHome [ ./hosts/desktop/home.nix ];
+	"caek@desktop" = mkHome [ ./home-manager/desktop ] nixpkgs.legacyPackages.x86_64-linux;
     };
   };
 }
