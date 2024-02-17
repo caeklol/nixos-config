@@ -4,7 +4,10 @@
 	isNormalUser = true;
 	description = "caek";
 	extraGroups = [ "networkmanager" "wheel" ];
-	packages = [ pkgs.home-manager];
+	packages = with pkgs; [
+		home-manager
+		vim
+	];
 	shell = pkgs.zsh;
   };
 }
