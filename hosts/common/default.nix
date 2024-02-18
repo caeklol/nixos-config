@@ -18,7 +18,7 @@
     overlays = [
       outputs.overlays.additions
       outputs.overlays.modifications
-      outputs.overlays.unstable-packages
+      outputs.overlays.stable-packages
     ];
 
     config = {
@@ -39,5 +39,5 @@
   security.rtkit.enable = true;
   boot.loader.systemd-boot.enable = true;
 
-  system.stateVersion = "23.11";
+  system.stateVersion = "unstable";
 }

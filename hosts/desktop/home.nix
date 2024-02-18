@@ -6,8 +6,8 @@
   ...
 }: {
   imports = [
-    ../common
-    ../common/gnome
+    ../../home-manager
+    ../../home-manager/gnome
   ];
 
   config = {
@@ -24,7 +24,7 @@
 
     home.username = "caek";
     home.homeDirectory = "/home/caek";
-    home.stateVersion = "22.11";
+    home.stateVersion = "23.11";
 
     home.packages = with pkgs; [
       (discord.override {

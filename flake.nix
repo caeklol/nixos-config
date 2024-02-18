@@ -4,10 +4,10 @@
   description = "caek's NixOS Config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    home-manager.url = "github:nix-community/home-manager/release-23.11";
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nur.url = "github:nix-community/NUR";
@@ -16,7 +16,7 @@
   outputs = {
     self,
     nixpkgs,
-    unstable,
+    stable,
     home-manager,
     nur,
     ...
@@ -39,7 +39,7 @@
     mkHome = modules: pkgs:
       home-manager.lib.homeManagerConfiguration {
         inherit modules pkgs;
-        extraSpecialArgs = {inherit inputs outputs unstable;};
+        extraSpecialArgs = {inherit inputs outputs stable;};
       };
   in {
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
@@ -48,11 +48,11 @@
     overlays = import ./overlays {inherit inputs;};
 
     nixosConfigurations = {
-      desktop = mkNixos [./hosts/desktop];
+      desktop = mkNixos [ ./hosts/desktop/configuration.nix ];
     };
 
     homeConfigurations = {
-      "caek@desktop" = mkHome [./home-manager/caek-desktop] nixpkgs.legacyPackages.x86_64-linux;
+      "caek@desktop" = mkHome [ ./hosts/desktop/home.nix ] nixpkgs.legacyPackages.x86_64-linux;
     };
   };
 }

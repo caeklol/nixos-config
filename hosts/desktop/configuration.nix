@@ -6,7 +6,6 @@
   imports = [
     ./hardware-configuration.nix
     ../common
-    ../common/unfree.nix
     ../common/desktop
     ../common/desktop/audio.nix
     ../common/desktop/nvidia.nix

@@ -15,6 +15,7 @@
     ./programs/fzf.nix
     ./programs/omp.nix
     ./programs/xmrig.nix
+    ./programs/prismlauncher.nix
 
     ./programs/git.nix
 
