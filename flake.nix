@@ -6,7 +6,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -17,6 +17,7 @@
   outputs = {
     self,
     nixpkgs,
+    unstable,
     home-manager,
     nur,
     ...
@@ -37,7 +38,7 @@
 
     mkHome = modules: pkgs: home-manager.lib.homeManagerConfiguration {
         inherit modules pkgs;
-        extraSpecialArgs = { inherit inputs outputs; };
+        extraSpecialArgs = { inherit inputs outputs unstable; };
     };
 
 
@@ -52,7 +53,7 @@
     };
 
     homeConfigurations = {
-	"caek@desktop" = mkHome [ ./home-manager/desktop ] nixpkgs.legacyPackages.x86_64-linux;
+	"caek@desktop" = mkHome [ ./home-manager/caek-desktop] nixpkgs.legacyPackages.x86_64-linux;
     };
   };
 }

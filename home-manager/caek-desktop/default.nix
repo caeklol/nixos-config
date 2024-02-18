@@ -7,9 +7,9 @@
   home.stateVersion = "22.11";
 
   imports = [
+     ./gnome
      ../common/unfree.nix
      ../common/bash.nix
-     ../common/gnome.nix
      ../common/firefox.nix
      ../common/kitty.nix
      ../common/omp.nix
@@ -17,6 +17,7 @@
      ../common/vscode.nix
      ../common/fzf.nix
      ../common/xmrig.nix
+     ../common/prismlauncher.nix
   ];
 
   home.packages = with pkgs; [
@@ -32,6 +33,7 @@
       btop
       git
       neofetch
+      xdotool
       yt-dlp
       ffmpeg
       maim
@@ -39,7 +41,7 @@
   
       jetbrains.idea-community
       teams-for-linux
-      prismlauncher
+      #prismlauncher
       tor-browser
       obs-studio
       expressvpn
