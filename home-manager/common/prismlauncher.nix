@@ -1,8 +1,8 @@
-{ config, pkgs, unstable, ...}:
 {
+  config,
+  pkgs,
+  ...
+}: {
   config = {
-#    home.packages = with unstable; [
-#	prismlauncher
-#    ];
   };
 }

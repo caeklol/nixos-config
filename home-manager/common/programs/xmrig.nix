@@ -1,6 +1,10 @@
-{ pkgs, ...}:
-let
-  cfg = {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
+  miner_cfg = {
     autosave = true;
     cpu = true;
     opencl = false;
@@ -24,16 +28,18 @@ let
       }
     ];
   };
-
-  config = builtins.toJSON(cfg);
-in
-{
-  config = {
-    home.packages = with pkgs; [
-      xmrig
-    ];
-
-    home.file.".xmrig.json".text = config;
+  config_json = builtins.toJSON miner_cfg;
+  xmrig = config.modules.programs.xmrig;
+in {
+  options.modules.programs.xmrig = {
+    enable = lib.mkEnableOption "enable xmrig miner";
   };
 
+  config = lib.mkIf xmrig.enable {
+    home.packages = [
+      pkgs.xmrig
+    ];
+
+    home.file.".xmrig.json".text = config_json;
+  };
 }

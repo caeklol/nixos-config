@@ -1,8 +1,8 @@
 {
-    outputs,
-    lib,
-    config,
-    ...
+  outputs,
+  lib,
+  config,
+  ...
 }: {
   services.openssh = {
     enable = true;

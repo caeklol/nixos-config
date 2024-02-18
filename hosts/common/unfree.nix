@@ -1,6 +1,5 @@
-{ config, ... }:
-{
-   nixpkgs = {
+{config, ...}: {
+  nixpkgs = {
     config = {
       allowUnfree = true;
       allowUnfreePredicate = _: true;

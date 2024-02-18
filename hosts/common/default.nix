@@ -7,11 +7,11 @@
   ...
 }: {
   imports = [
-     ./tailscale.nix
-     ./locale.nix
-     ./caek.nix 
-     ./nix.nix
-     ./ssh.nix
+    ./tailscale.nix
+    ./locale.nix
+    ./caek.nix
+    ./nix.nix
+    ./ssh.nix
   ];
 
   nixpkgs = {
@@ -28,11 +28,11 @@
   };
 
   environment = {
-	enableAllTerminfo = true;
-	systemPackages = with pkgs; [
-		vim
-		git
-	];
+    enableAllTerminfo = true;
+    systemPackages = with pkgs; [
+      vim
+      git
+    ];
   };
 
   hardware.enableRedistributableFirmware = true;

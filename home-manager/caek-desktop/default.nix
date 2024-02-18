@@ -1,32 +1,37 @@
-{ config, inputs, pkgs, ... }:
 {
-
-  home.username = "caek";
-  home.homeDirectory = "/home/caek";
-
-  home.stateVersion = "22.11";
-
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
-     ./gnome
-     ../common/unfree.nix
-     ../common/bash.nix
-     ../common/firefox.nix
-     ../common/kitty.nix
-     ../common/omp.nix
-     ../common/neovim.nix
-     ../common/vscode.nix
-     ../common/fzf.nix
-     ../common/xmrig.nix
-     ../common/prismlauncher.nix
+    ../common
+    ../common/gnome
   ];
 
-  home.packages = with pkgs; [
+  config = {
+    modules = {
+      browsers.firefox.enable = true;
+      editors.neovim.enable = true;
+      editors.vscode.enable = true;
+      programs.fzf.enable = true;
+      programs.omp.enable = true;
+      programs.xmrig.enable = true;
+      shells.bash.enable = true;
+      terminals.kitty.enable = true;
+    };
+
+    home.username = "caek";
+    home.homeDirectory = "/home/caek";
+    home.stateVersion = "22.11";
+
+    home.packages = with pkgs; [
       (discord.override {
         withVencord = true;
       })
       cinny-desktop
-     
-      # something weird happened with netcat i have to specify the version now
+
       netcat-openbsd
       ferium
       xclip
@@ -38,10 +43,9 @@
       ffmpeg
       maim
       tmux
-  
+
       jetbrains.idea-community
       teams-for-linux
-      #prismlauncher
       tor-browser
       obs-studio
       expressvpn
@@ -53,35 +57,6 @@
       ngrok
       steam
       gimp
-  ];
-
-  # dotfiles would be here
-  home.file = {};
-
-  # envvars but sourcing:
-  # ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  # or
-  # /etc/profiles/per-user/caek/etc/profile.d/hm-session-vars.sh
-  # is required without home-manager managing shell
-  # idk if i set that up
-
-  # no more random gnome dirs
-  # like what is ~/Templates for ???
-  xdg.userDirs.enable = true;
-  xdg.userDirs.desktop = "${config.home.homeDirectory}";
-  xdg.userDirs.documents = "${config.home.homeDirectory}";
-  xdg.userDirs.download = "${config.home.homeDirectory}/downloads";
-  xdg.userDirs.music = "${config.home.homeDirectory}";
-  xdg.userDirs.pictures = "${config.home.homeDirectory}/pictures";
-  xdg.userDirs.templates = "${config.home.homeDirectory}";
-  xdg.userDirs.videos = "${config.home.homeDirectory}/videos";
-
-  #home.sessionVariables = {
-  #  EDITOR = "nvim";
-  #  BROWSER = "firefox";
-  #  TERMINAL = "kitty";
-  #};
-
-  programs.home-manager.enable = true;
+    ];
+  };
 }
-

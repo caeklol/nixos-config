@@ -1,6 +1,5 @@
 # Most, if not all from:
 # https://github.com/Misterio77/nix-starter-configs
-
 {
   description = "caek's NixOS Config";
 
@@ -31,29 +30,29 @@
 
     forAllSystems = nixpkgs.lib.genAttrs systems;
 
-    mkNixos = modules: nixpkgs.lib.nixosSystem {
+    mkNixos = modules:
+      nixpkgs.lib.nixosSystem {
         inherit modules;
-        specialArgs = { inherit inputs outputs; };
-    };
+        specialArgs = {inherit inputs outputs;};
+      };
 
-    mkHome = modules: pkgs: home-manager.lib.homeManagerConfiguration {
+    mkHome = modules: pkgs:
+      home-manager.lib.homeManagerConfiguration {
         inherit modules pkgs;
-        extraSpecialArgs = { inherit inputs outputs unstable; };
-    };
-
-
+        extraSpecialArgs = {inherit inputs outputs unstable;};
+      };
   in {
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     overlays = import ./overlays {inherit inputs;};
-    
+
     nixosConfigurations = {
-       desktop = mkNixos [ ./hosts/desktop ];
+      desktop = mkNixos [./hosts/desktop];
     };
 
     homeConfigurations = {
-	"caek@desktop" = mkHome [ ./home-manager/caek-desktop] nixpkgs.legacyPackages.x86_64-linux;
+      "caek@desktop" = mkHome [./home-manager/caek-desktop] nixpkgs.legacyPackages.x86_64-linux;
     };
   };
 }

@@ -1,7 +1,7 @@
 {
-   inputs,
-   lib,
-   ...
+  inputs,
+  lib,
+  ...
 }: {
   nix = {
     settings = {
@@ -15,7 +15,7 @@
       options = "--delete-older-than 2d";
     };
 
-    registry = lib.mapAttrs(_: value: { flake = value; }) inputs;
+    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
     nixPath = ["nixpkgs=${inputs.nixpkgs.outPath}"];
   };
 }
