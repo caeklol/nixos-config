@@ -16,6 +16,8 @@
     ./programs/omp.nix
     ./programs/xmrig.nix
 
+    ./programs/git.nix
+
     ./shells/bash.nix
     ./shells/zsh.nix
 
