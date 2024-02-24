@@ -35,6 +35,13 @@ in {
           blur-my-shell.extensionUuid
         ];
       };
+      "org/gnome/desktop/session" = {
+	idle-delay = lib.hm.gvariant.mkUint32 0;
+      };
+
+      "org/gnome/settings-daemon/plugins/power" = {
+	sleep-inactive-ac-type = "nothing";
+      };
 
       "org/gnome/Console" = {
         font-scale = 1.4000000000000004;

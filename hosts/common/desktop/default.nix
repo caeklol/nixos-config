@@ -13,8 +13,10 @@
       displayManager.gdm.enable = true;
 
       enable = true;
-      layout = "us";
-      xkbVariant = "";
+      xkb = {
+        layout = "us";
+        variant = "";
+      };    
     };
   };
 }
