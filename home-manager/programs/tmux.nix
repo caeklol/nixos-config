@@ -14,7 +14,7 @@ in {
 		programs.tmux = {
 			enable = true;
 			extraConfig = ''
-				set-window-option -g window-status-current-style bg=FF0000	
+				set-window-option -g status-style bg=#74c7ec,fg=#45475a
 			'';
 		};
   	};

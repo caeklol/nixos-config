@@ -13,6 +13,7 @@
   config = {
     modules = {
       programs.fzf.enable = true;
+      programs.tmux.enable = true;
       programs.omp.enable = true;
       programs.xmrig.enable = true;
       programs.prismlauncher.enable = true;
