@@ -9,6 +9,7 @@
     ../common/desktop
     ../common/desktop/audio.nix
     ../common/desktop/nvidia.nix
+    ../common/desktop/gnome.nix
   ];
 
   networking = {

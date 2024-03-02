@@ -16,6 +16,7 @@
     ./programs/omp.nix
     ./programs/xmrig.nix
     ./programs/prismlauncher.nix
+	./programs/tmux.nix
 
     ./programs/git.nix
 

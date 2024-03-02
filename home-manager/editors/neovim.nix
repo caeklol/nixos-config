@@ -17,11 +17,14 @@ in {
         vim.opt.tabstop = 4
         vim.opt.shiftwidth = 4
         vim.opt.expandtab = false
-	vim.g.mapleader = "\\"
+		vim.g.mapleader = "\\"
       '';
 
+	  extraConfig = ''
+		 au BufEnter * set noro
+	  '';
+
       plugins = with pkgs.vimPlugins; [
-      suda-vim
       	{
 	    plugin = presence-nvim;
 	    type = "lua";
@@ -35,7 +38,7 @@ in {
 	    type = "lua";
 	    config = ''
 		local builtin = require('telescope.builtin')
-		vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+		vim.keymap.set('n', '<leader><leader>', builtin.find_files, {})
 	    '';
 	}
 
@@ -73,7 +76,7 @@ in {
 		require("nvim-tree").setup()
 		
 		local api = require "nvim-tree.api"
-		vim.keymap.set('n', '<leader><leader>', function() api.tree.open({ path = "<args>" }) end, {})
+		vim.keymap.set('n', '<leader>t', function() api.tree.open({ path = "<args>" }) end, {})
 	    '';
 	}
       ];

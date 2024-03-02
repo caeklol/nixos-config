@@ -7,15 +7,15 @@
 }: {
   imports = [
     ../../home-manager
-    ../../home-manager/gnome
+    ../../home-manager/desktop/gnome.nix
   ];
 
   config = {
     modules = {
-	  programs.fzf.enable = true;
+      programs.fzf.enable = true;
       programs.omp.enable = true;
       programs.xmrig.enable = true;
-	  programs.prismlauncher.enable = true;
+      programs.prismlauncher.enable = true;
       browsers.firefox.enable = true;
       editors.neovim.enable = true;
       editors.vscode.enable = true;
