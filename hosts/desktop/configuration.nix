@@ -35,4 +35,5 @@ services.xmrig = {
     ];
   };
   };
+  boot.loader.grub.gfxmodeEfi="1920x1080";
 }
