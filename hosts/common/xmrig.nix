@@ -28,18 +28,22 @@
       }
     ];
   };
-  config_json = builtins.toJSON miner_cfg;
-  xmrig = config.modules.programs.xmrig;
+  configJson = builtins.toJSON miner_cfg;
+  configFile = pkgs.writeText "config.json" configJson;
 in {
-  options.modules.programs.xmrig = {
-    enable = lib.mkEnableOption "enable xmrig miner";
-  };
+  config = {
+	hardware.cpu.x86.msr.enable = true;
 
-  config = lib.mkIf xmrig.enable {
-    home.packages = [
-      pkgs.xmrig
-    ];
-
-    home.file.".xmrig.json".text = config_json;
+    systemd.services.xmrig = {
+      wantedBy = lib.mkForce [];
+      after = [ "network.target" ];
+      description = "XMRig Mining Software Service (no auto-start)";
+      serviceConfig = {
+        ExecStartPre = "${lib.getExe pkgs.xmrig} --config=${configFile} --dry-run";
+        ExecStart = "${lib.getExe pkgs.xmrig} --config=${configFile}";
+        DynamicUser = false;
+      };
+    };
   };
 }
+  

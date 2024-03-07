@@ -7,7 +7,7 @@
 }: {
   imports = [
     ../../home-manager
-    ../../home-manager/desktop/gnome.nix
+    ../../home-manager/desktop/i3.nix
   ];
 
   config = {
@@ -15,7 +15,6 @@
       programs.fzf.enable = true;
       programs.tmux.enable = true;
       programs.omp.enable = true;
-      programs.xmrig.enable = true;
       programs.prismlauncher.enable = true;
       browsers.firefox.enable = true;
       editors.neovim.enable = true;
@@ -34,7 +33,6 @@
       })
       cinny-desktop
 
-      netcat-openbsd
       ferium
       xclip
       btop
@@ -58,7 +56,8 @@
       spotify
       ngrok
       steam
-      gimp
+      krita 
+	  gparted
     ];
   };
 }

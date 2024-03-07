@@ -12,11 +12,10 @@
     ./editors/neovim.nix
     ./editors/vscode.nix
 
-    ./programs/fzf.nix
-    ./programs/omp.nix
-    ./programs/xmrig.nix
     ./programs/prismlauncher.nix
+    ./programs/fzf.nix
 	./programs/tmux.nix
+    ./programs/omp
 
     ./programs/git.nix
 

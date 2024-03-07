@@ -11,7 +11,7 @@
     ./locale.nix
     ./caek.nix
     ./nix.nix
-    ./ssh.nix
+    ./ssh
   ];
 
   nixpkgs = {

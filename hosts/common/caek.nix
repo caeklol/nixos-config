@@ -12,5 +12,8 @@
       vim
     ];
     shell = pkgs.bash;
+	openssh.authorizedKeys.keyFiles = [
+		./ssh/authorized_keys
+	];
   };
 }

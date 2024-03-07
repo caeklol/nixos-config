@@ -7,9 +7,8 @@
   services.openssh = {
     enable = true;
     settings = {
-      PermitRootLogin = "no";
-      StreamLocalBindUnlink = "yes";
       PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
     };
   };
 }

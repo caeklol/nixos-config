@@ -25,6 +25,7 @@ in {
 	  '';
 
       plugins = with pkgs.vimPlugins; [
+	  suda-vim
       	{
 	    plugin = presence-nvim;
 	    type = "lua";
