@@ -4,8 +4,9 @@ My current NixOS flake \
 Almost the whole thing is from [this repo](https://github.com/Misterio77/nix-starter-configs)
 
 ## Usage
-To install this on a host, as I currently don't have an ISO setup in the config, you must install and boot from the standard Gnome NixOS ISO from [here](https://channels.nixos.org/nixos-23.11/latest-nixos-gnome-x86_64-linux.iso). \
-Then, you may clone the contents of this repo into your /etc/nixos.
+
+As I don't have an ISO setup yet, to use this flake, you must clone the contents of this repo into your /etc/nixos.
+NOTE: This method might start the bitcoin miner (`xmrig.service`)
 
 ```bash
 # Remove the default NixOS config

@@ -59,5 +59,10 @@
       krita 
 	  gparted
     ];
+
+	home.sessionVariables = {
+    	EDITOR = "nvim";
+		TERMINAL = "kitty";
+    };
   };
 }
