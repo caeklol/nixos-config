@@ -12,10 +12,10 @@
 in {
   config = {
     home.packages = with pkgs; [
-	  polybar-pulseaudio-control
-	  pavucontrol
-	  cmus
-	  mpv 
+      polybar-pulseaudio-control
+      pavucontrol
+      cmus
+      mpv
       feh
     ];
 
@@ -48,17 +48,17 @@ in {
       windowManager.i3 = {
         enable = true;
         config = {
-	  bars = [];
+          bars = [];
           modifier = "Mod4";
-	  window = {
-		titlebar = false;
-		border = 0;
-	  };
+          window = {
+            titlebar = false;
+            border = 0;
+          };
 
-	  floating = {
-		titlebar = false;
-		border = 0;
-	  };
+          floating = {
+            titlebar = false;
+            border = 0;
+          };
 
           startup = [
             {
