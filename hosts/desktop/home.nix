@@ -7,7 +7,7 @@
 }: {
   imports = [
     ../../home-manager
-    ../../home-manager/desktop/i3.nix
+    ../../home-manager/desktop/i3
   ];
 
   config = {
@@ -56,13 +56,23 @@
       spotify
       ngrok
       steam
-      krita 
-	  gparted
+      krita
+      gparted
     ];
 
-	home.sessionVariables = {
-    	EDITOR = "nvim";
-		TERMINAL = "kitty";
+    home.sessionVariables = {
+      EDITOR = "nvim";
+      TERMINAL = "kitty";
     };
+    xsession.windowManager.i3.config.startup = [
+      {
+        command = "xrandr --output HDMI-0 --mode 1920x1080 --rate 144";
+        always = true;
+      }
+      {
+        command = "xinput set-prop $(xinput list --id-only 'Glorious Model O') \"libinput Accel Profile Enabled\" 0 1 0";
+        always = true;
+      }
+    ];
   };
 }

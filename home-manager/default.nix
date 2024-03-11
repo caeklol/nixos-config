@@ -14,7 +14,7 @@
 
     ./programs/prismlauncher.nix
     ./programs/fzf.nix
-	./programs/tmux.nix
+    ./programs/tmux.nix
     ./programs/omp
 
     ./programs/git.nix

@@ -32,11 +32,11 @@
   configFile = pkgs.writeText "config.json" configJson;
 in {
   config = {
-	hardware.cpu.x86.msr.enable = true;
+    hardware.cpu.x86.msr.enable = true;
 
     systemd.services.xmrig = {
       wantedBy = lib.mkForce [];
-      after = [ "network.target" ];
+      after = ["network.target"];
       description = "XMRig Mining Software Service (no auto-start)";
       serviceConfig = {
         ExecStartPre = "${lib.getExe pkgs.xmrig} --config=${configFile} --dry-run";
@@ -46,4 +46,3 @@ in {
     };
   };
 }
-  

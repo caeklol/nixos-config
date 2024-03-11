@@ -48,11 +48,11 @@
     overlays = import ./overlays {inherit inputs;};
 
     nixosConfigurations = {
-      desktop = mkNixos [ ./hosts/desktop/configuration.nix ];
+      desktop = mkNixos [./hosts/desktop/configuration.nix];
     };
 
     homeConfigurations = {
-      "caek@desktop" = mkHome [ ./hosts/desktop/home.nix ] nixpkgs.legacyPackages.x86_64-linux;
+      "caek@desktop" = mkHome [./hosts/desktop/home.nix] nixpkgs.legacyPackages.x86_64-linux;
     };
   };
 }

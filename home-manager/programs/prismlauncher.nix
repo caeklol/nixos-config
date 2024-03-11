@@ -11,8 +11,8 @@ in {
   };
 
   config = lib.mkIf cfg.programs.prismlauncher.enable {
-     home.packages = with pkgs; [
-       prismlauncher
-     ];
+    home.packages = with pkgs; [
+      prismlauncher
+    ];
   };
 }

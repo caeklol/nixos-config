@@ -10,12 +10,12 @@ in {
     enable = lib.mkEnableOption "enable tmux";
   };
 
-	config = lib.mkIf tmux.enable {
-		programs.tmux = {
-			enable = true;
-			extraConfig = ''
-				set-window-option -g status-style bg=#74c7ec,fg=#45475a
-			'';
-		};
-  	};
+  config = lib.mkIf tmux.enable {
+    programs.tmux = {
+      enable = true;
+      extraConfig = ''
+        set-window-option -g status-style bg=#74c7ec,fg=#45475a
+      '';
+    };
+  };
 }

@@ -5,7 +5,7 @@
   ...
 }: let
   wallpaper = builtins.path {
-    path = ./wallpaper.png;
+    path = ../wallpaper.png;
     name = "gnome-wallpaper";
   };
 in {
@@ -36,11 +36,11 @@ in {
         ];
       };
       "org/gnome/desktop/session" = {
-	idle-delay = lib.hm.gvariant.mkUint32 0;
+        idle-delay = lib.hm.gvariant.mkUint32 0;
       };
 
       "org/gnome/settings-daemon/plugins/power" = {
-	sleep-inactive-ac-type = "nothing";
+        sleep-inactive-ac-type = "nothing";
       };
 
       "org/gnome/Console" = {
