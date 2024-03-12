@@ -9,6 +9,8 @@
     path = ../wallpaper.png;
     name = "i3-wallpaper";
   };
+
+  modifier = "Mod4";
 in {
   config = {
     home.packages = with pkgs; [
@@ -49,7 +51,7 @@ in {
         enable = true;
         config = {
           bars = [];
-          modifier = "Mod4";
+          modifier = modifier;
           window = {
             titlebar = false;
             border = 0;
@@ -59,6 +61,10 @@ in {
             titlebar = false;
             border = 0;
           };
+
+		  keybindings = lib.mkOptionDefault {
+				"${modifier}+Shift+s" = "exec maim -s -m 4 | xclip -selection clipboard -t image/png"; # whatever. im too lazy to write maim.nix and then lib.mkIf for compatibility
+		  };
 
           startup = [
             {
