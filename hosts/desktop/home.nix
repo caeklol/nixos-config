@@ -58,7 +58,10 @@
       steam
       krita
       gparted
+	  bruno
     ];
+	
+	fonts.fontconfig.enable = true;
 
     home.sessionVariables = {
       EDITOR = "nvim";
@@ -66,7 +69,7 @@
     };
     xsession.windowManager.i3.config.startup = [
       {
-        command = "xrandr --output HDMI-0 --mode 1920x1080 --rate 144";
+        command = "xrandr --output HDMI-0 --mode 1920x1080 --rate 60";
         always = true;
       }
       {

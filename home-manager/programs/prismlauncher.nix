@@ -12,7 +12,7 @@ in {
 
   config = lib.mkIf cfg.programs.prismlauncher.enable {
     home.packages = with pkgs; [
-      prismlauncher
+   		prismlauncher 	
     ];
   };
 }
