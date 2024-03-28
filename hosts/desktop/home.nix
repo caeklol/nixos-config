@@ -58,10 +58,10 @@
       steam
       krita
       gparted
-	  bruno
+      bruno
     ];
-	
-	fonts.fontconfig.enable = true;
+
+    fonts.fontconfig.enable = true;
 
     home.sessionVariables = {
       EDITOR = "nvim";

@@ -14,13 +14,13 @@
 in {
   config = {
     home.packages = with pkgs; [
-		polybar-pulseaudio-control
-		pavucontrol
-		noto-fonts
-		font-manager
-		cmus
-		mpv
-		feh
+      polybar-pulseaudio-control
+      pavucontrol
+      noto-fonts
+      font-manager
+      cmus
+      mpv
+      feh
     ];
 
     home.file.polybar = {
@@ -59,10 +59,10 @@ in {
             border = 0;
           };
 
-		  fonts = {
-			names = [ "NotoSans" ];
-			size = 11.0;
-		  };
+          fonts = {
+            names = ["NotoSans"];
+            size = 11.0;
+          };
 
           floating = {
             titlebar = false;
