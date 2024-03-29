@@ -43,6 +43,7 @@
   boot.loader.grub.device = "nodev";
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.efiSupport = true;
+  boot.supportedFilesystems = ["ntfs"];
 
   system.stateVersion = "unstable";
 }

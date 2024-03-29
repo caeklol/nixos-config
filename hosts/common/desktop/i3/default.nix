@@ -7,7 +7,7 @@
   enabled = config.desktop.env == "i3";
 in {
   imports = [
-    ./bluetooth
+    ../bluetooth
   ];
 
   config = {

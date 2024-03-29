@@ -21,10 +21,11 @@ in {
       '';
 
       extraConfig = ''
-        nnoremap Q "_
+              nnoremap Q "_
+        command Sw normal :SudaWrite
 
               au BufEnter * set noro
-        set number
+              set number
       '';
 
       plugins = with pkgs.vimPlugins; [

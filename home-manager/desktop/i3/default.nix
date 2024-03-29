@@ -18,6 +18,7 @@ in {
       pavucontrol
       noto-fonts
       font-manager
+      maim
       cmus
       mpv
       feh
@@ -70,7 +71,7 @@ in {
           };
 
           keybindings = lib.mkOptionDefault {
-            "${modifier}+Shift+s" = "exec maim -s -m 4 | xclip -selection clipboard -t image/png"; # whatever. im too lazy to write maim.nix and then lib.mkIf for compatibility
+            "${modifier}+Shift+s" = "exec maim -s -m 4 | xclip -selection clipboard -t image/png";
           };
 
           startup = [

@@ -7,7 +7,7 @@
 }: {
   imports = [
     ../../home-manager
-    ../../home-manager/desktop/i3
+    ../../home-manager/desktop/hyprland
   ];
 
   config = {
@@ -41,7 +41,6 @@
       xdotool
       yt-dlp
       ffmpeg
-      maim
       tmux
 
       jetbrains.idea-community
@@ -67,15 +66,22 @@
       EDITOR = "nvim";
       TERMINAL = "kitty";
     };
-    xsession.windowManager.i3.config.startup = [
-      {
-        command = "xrandr --output HDMI-0 --mode 1920x1080 --rate 60";
-        always = true;
-      }
-      {
-        command = "xinput set-prop $(xinput list --id-only 'Glorious Model O') \"libinput Accel Profile Enabled\" 0 1 0";
-        always = true;
-      }
-    ];
+
+    wayland.windowManager.hyprland.settings = {
+      input = {
+        accel_profile = "flat";
+      };
+    };
+
+    #xsession.windowManager.i3.config.startup = [
+    #  {
+    #    command = "xrandr --output HDMI-0 --mode 1920x1080 --rate 60";
+    #    always = true;
+    #  }
+    #  {
+    #    command = "xinput set-prop $(xinput list --id-only 'Glorious Model O') \"libinput Accel Profile Enabled\" 0 1 0";
+    #    always = true;
+    #  }
+    #];
   };
 }

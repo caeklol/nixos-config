@@ -16,10 +16,8 @@
 
   config = {
     desktop = {
-      xrdp = true;
-      env = "i3"; # uM, ACtuAllY.......
-      # i3 is a wInDow ManAgeR, whiCh You Can InStall OveR a DeSkTop EnvirOneMent..
-      # HoweVeRRRRRRRRRrr, a De Is not-
+      remote = true;
+      env = "hyprland";
     };
 
     networking = {

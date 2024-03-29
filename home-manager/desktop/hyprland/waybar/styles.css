@@ -1,0 +1,24 @@
+@import "mocha.css";
+
+* {
+	font-family: 'JetBrains Mono Nerd Font';
+	font-size: 16px;
+	letter-spacing: -0.1px;
+	color: @text;
+}
+
+window#waybar {
+	background: @base;
+}
+
+#workspaces button.active {
+	background: @surface2;
+}
+
+#clock.1 {
+	color: @yellow;
+}
+
+#clock.2 {
+	color: @text;
+}
