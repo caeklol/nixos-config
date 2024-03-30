@@ -15,10 +15,11 @@ window#waybar {
 	background: @surface2;
 }
 
-#clock.1 {
-	color: @yellow;
+#workspaces button.focused {
+	background: @base;
 }
 
-#clock.2 {
-	color: @text;
+#clock {
+	color: @yellow;
+	padding-right: 0.5px;
 }

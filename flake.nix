@@ -23,8 +23,8 @@
   } @ inputs: let
     inherit (self) outputs;
     systems = [
-      "aarch64-linux"
-      "i686-linux"
+      #"aarch64-linux"
+      #"i686-linux"
       "x86_64-linux"
     ];
 
@@ -39,10 +39,15 @@
     mkHome = modules: pkgs:
       home-manager.lib.homeManagerConfiguration {
         inherit modules pkgs;
-        extraSpecialArgs = {inherit inputs outputs stable;};
+        extraSpecialArgs = {inherit inputs outputs;};
       };
   in {
-    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    packages = forAllSystems (
+      system: let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+        import ./pkgs {inherit pkgs;}
+    );
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     overlays = import ./overlays {inherit inputs;};

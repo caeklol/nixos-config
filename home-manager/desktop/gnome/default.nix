@@ -11,13 +11,7 @@
 in {
   config = {
     home.packages = with pkgs; [
-      (catppuccin-gtk.override {
-        accents = ["teal" "blue"];
-        variant = "mocha";
-      })
       gnome.gnome-tweaks
-
-      papirus-icon-theme
 
       gnomeExtensions.zen
       gnomeExtensions.user-themes

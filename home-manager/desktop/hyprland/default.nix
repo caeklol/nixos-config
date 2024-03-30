@@ -25,7 +25,6 @@ in {
       wofi
       dolphin
       hyprpaper
-      apple-cursor
       wl-clipboard
       grim
       slurp
@@ -40,30 +39,30 @@ in {
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland.enable = true;
-
       settings = {
         "$mod" = modifier;
         "$mod2" = modifier2;
         "$terminal" = "kitty";
         "$fileManager" = "${pkgs.dolphin}/bin/dolphin";
         "$menu" = "wofi --show drun";
-        "$screenshot" = "${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy";
+        "$screenshot" = "${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy -t image/png";
 
         exec = [
           "pkill waybar ; waybar --config ~/.config/waybar/config --style ~/.config/waybar/styles.css"
           "pkill hyprpaper ; ${pkgs.hyprpaper}/bin/hyprpaper --config ${hyprpaper-config}"
-          "gsettings set org.gnome.desktop.interface cursor-theme 'macOS-Monterey'"
-          "hyprctl setcursor \"macOS-Monterey\""
+          "hyprctl setcursor \"macOS-Monterey\" 24"
         ];
 
         exec-once = [
           "which wayvnc && wayvnc"
+          "lxqt-policykit-agent"
+          "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         ];
 
         bind =
           [
             "$mod $mod2, S, exec, $screenshot"
-            "$mod, F, exec, firefox"
+            "$mod $mod2, R, exec, hyprctl reload"
             "$mod, Return, exec, $terminal"
             "$mod $mod2, Q, killactive,"
             "$mod $mod2, E, exit,"

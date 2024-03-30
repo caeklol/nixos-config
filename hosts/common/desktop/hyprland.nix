@@ -1,4 +1,3 @@
-# Abandoned -- no ICC profile support on sway
 {
   config,
   lib,
@@ -10,17 +9,20 @@ in
   lib.mkIf enabled {
     environment.systemPackages = with pkgs; [
       greetd.tuigreet
+      lxqt.lxqt-policykit
     ];
+
     environment.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
       NIXOS_OZONE_WL = "1";
     };
 
-    programs.hyprland = {
-      enable = true;
-    };
+    programs.hyprland.enable = true;
 
-    security.polkit.enable = true;
+    xdg.portal.enable = true;
+    xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-hyprland];
+
+    security.polkit.enable = lib.mkForce true;
 
     systemd.services.greetd.serviceConfig = {
       Type = "idle";

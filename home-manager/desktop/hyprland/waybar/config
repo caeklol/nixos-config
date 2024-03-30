@@ -1,8 +1,9 @@
 {
 	"layer": "top",
 	"position": "top",
+	"fixed-center": true,
+	"modules-center": ["clock"],
 	"modules-left": ["hyprland/workspaces"],
-	"modules-center": ["clock#1", "clock#2"],
 	"modules-right": ["pulseaudio"],
 	"hyprland/workspaces": {
       	"format": "{name}",
@@ -12,14 +13,12 @@
         	  "urgent": " "
       		},
 	},
+	
 
-	"clock#1": {
-		"format": "{:%b %d, %Y}",
-		"tooltip": false
-	},
 
-	"clock#2": {
-		"format": " {:%I:%M %p}",
+	"clock": {
+		"interval": 1,
+		"format": "{:%I:%M:%S %p}",
 		"tooltip": false
 	},
 

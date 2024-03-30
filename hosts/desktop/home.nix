@@ -7,7 +7,8 @@
 }: {
   imports = [
     ../../home-manager
-    ../../home-manager/desktop/hyprland
+    ../../home-manager/desktop
+    ../../home-manager/desktop/hyprland # TODO: Make into option (config = desktop.enable, desktop.env)
   ];
 
   config = {
@@ -28,9 +29,10 @@
     home.stateVersion = "23.11";
 
     home.packages = with pkgs; [
-      (discord.override {
-        withVencord = true;
-      })
+      #(discord.override {
+      #  withVencord = true;
+      #})
+      vesktop
       cinny-desktop
 
       ferium

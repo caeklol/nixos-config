@@ -17,11 +17,7 @@ in {
       polybar-pulseaudio-control
       pavucontrol
       noto-fonts
-      font-manager
       maim
-      cmus
-      mpv
-      feh
     ];
 
     home.file.polybar = {
