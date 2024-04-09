@@ -17,6 +17,7 @@ in {
       polybar-pulseaudio-control
       pavucontrol
       noto-fonts
+      feh # background
       maim
     ];
 

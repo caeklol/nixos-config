@@ -59,6 +59,11 @@ in {
           "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         ];
 
+        bindm = [
+          "$mod, mouse:272, movewindow"
+          "$mod, mouse:273, resizewindow"
+        ];
+
         bind =
           [
             "$mod $mod2, S, exec, $screenshot"
@@ -87,7 +92,7 @@ in {
                     builtins.toString (x + 1 - (c * 10));
                 in [
                   "$mod, ${ws}, workspace, ${toString (x + 1)}"
-                  "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+                  "$mod SHIFT, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
                 ]
               )
               10)

@@ -23,6 +23,7 @@
     ./editors/vscode.nix
 
     ./programs/prismlauncher.nix
+    ./programs/arduino.nix
     ./programs/fzf.nix
     ./programs/tmux.nix
     ./programs/omp

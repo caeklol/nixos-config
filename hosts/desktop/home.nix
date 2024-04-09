@@ -17,6 +17,7 @@
       programs.tmux.enable = true;
       programs.omp.enable = true;
       programs.prismlauncher.enable = true;
+      programs.arduino.enable = true;
       browsers.firefox.enable = true;
       editors.neovim.enable = true;
       editors.vscode.enable = true;
@@ -29,9 +30,9 @@
     home.stateVersion = "23.11";
 
     home.packages = with pkgs; [
-      #(discord.override {
-      #  withVencord = true;
-      #})
+      (discord.override {
+        withVencord = true;
+      })
       vesktop
       cinny-desktop
 
@@ -59,6 +60,7 @@
       steam
       krita
       gparted
+      font-manager
       bruno
     ];
 
@@ -77,7 +79,7 @@
 
     #xsession.windowManager.i3.config.startup = [
     #  {
-    #    command = "xrandr --output HDMI-0 --mode 1920x1080 --rate 60";
+    #    command = "xrandr --output HDMI-0 --mode 1920x1080 --rate 144";
     #    always = true;
     #  }
     #  {
