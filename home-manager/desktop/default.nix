@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   config = {
+
     gtk = {
       enable = true;
       cursorTheme = {
@@ -8,14 +9,14 @@
         size = 24;
       };
       font = {
-        name = "SF-Pro-Display-Regular";
+        name = "SF Pro Display";
         package = pkgs.apple-fonts;
-        size = 10;
+        size = 11;
       };
 
       iconTheme = {
-        name = "Papirus-Dark";
-        package = pkgs.papirus-icon-theme;
+        name = "WhiteSur";
+        package = pkgs.whitesur-icon-theme;
       };
 
       theme = {
@@ -26,7 +27,14 @@
         };
       };
     };
+
+	qt = {
+		enable = true;
+		platformTheme = "gtk";
+		style = {
+			name = "qt5gtk2";
+			#package = pkgs.adwaita-qt;
+		};
+	};
   };
-  # TODO
-  # QT
 }

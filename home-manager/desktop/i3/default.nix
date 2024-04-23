@@ -18,7 +18,9 @@ in {
       pavucontrol
       noto-fonts
       feh # background
+	  apple-fonts
       maim
+	  xclip
     ];
 
     home.file.polybar = {
@@ -58,8 +60,8 @@ in {
           };
 
           fonts = {
-            names = ["NotoSans"];
-            size = 11.0;
+            names = ["SF Pro Display" "SF Pro Display"];
+            size = 9.0;
           };
 
           floating = {

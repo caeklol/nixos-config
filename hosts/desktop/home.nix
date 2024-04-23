@@ -8,7 +8,7 @@
   imports = [
     ../../home-manager
     ../../home-manager/desktop
-    ../../home-manager/desktop/hyprland # TODO: Make into option (config = desktop.enable, desktop.env)
+    ../../home-manager/desktop/i3 # TODO: Make into option (config = desktop.enable, desktop.env)
   ];
 
   config = {
@@ -17,6 +17,10 @@
       programs.tmux.enable = true;
       programs.omp.enable = true;
       programs.prismlauncher.enable = true;
+      programs.obsidian = {
+	  	enable = true;
+		syncthing = true;
+	  };
       programs.arduino.enable = true;
       browsers.firefox.enable = true;
       editors.neovim.enable = true;
@@ -36,12 +40,11 @@
       vesktop
       cinny-desktop
 
-      ferium
-      xclip
+	  cura
+
       btop
       git
       neofetch
-      xdotool
       yt-dlp
       ffmpeg
       tmux
@@ -71,21 +74,21 @@
       TERMINAL = "kitty";
     };
 
-    wayland.windowManager.hyprland.settings = {
-      input = {
-        accel_profile = "flat";
-      };
-    };
+    #wayland.windowManager.hyprland.settings = {
+    #  input = {
+    #    accel_profile = "flat";
+    #  };
+    #};
 
-    #xsession.windowManager.i3.config.startup = [
-    #  {
-    #    command = "xrandr --output HDMI-0 --mode 1920x1080 --rate 144";
-    #    always = true;
-    #  }
-    #  {
-    #    command = "xinput set-prop $(xinput list --id-only 'Glorious Model O') \"libinput Accel Profile Enabled\" 0 1 0";
-    #    always = true;
-    #  }
-    #];
+    xsession.windowManager.i3.config.startup = [
+      {
+        command = "xrandr --output HDMI-0 --mode 1920x1080 --rate 144";
+        always = true;
+      }
+      {
+        command = "xinput set-prop $(xinput list --id-only 'Glorious Model O') \"libinput Accel Profile Enabled\" 0 1 0";
+        always = true;
+      }
+    ];
   };
 }

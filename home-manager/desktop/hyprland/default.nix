@@ -22,12 +22,12 @@
 in {
   config = {
     home.packages = with pkgs; [
-      wofi
-      dolphin
+      cinnamon.nemo
       hyprpaper
       wl-clipboard
       grim
       slurp
+	  wofi
     ];
 
     home.file.".config/waybar".source = ./waybar;
@@ -43,8 +43,8 @@ in {
         "$mod" = modifier;
         "$mod2" = modifier2;
         "$terminal" = "kitty";
-        "$fileManager" = "${pkgs.dolphin}/bin/dolphin";
-        "$menu" = "wofi --show drun";
+        "$fileManager" = "${pkgs.cinnamon.nemo}/bin/nemo";
+        "$menu" = "wofi --show drun -i";
         "$screenshot" = "${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy -t image/png";
 
         exec = [
@@ -54,7 +54,7 @@ in {
         ];
 
         exec-once = [
-          "which wayvnc && wayvnc"
+          "which wayvnc && wayvnc -o HDMI-A-1 0.0.0.0"
           "lxqt-policykit-agent"
           "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         ];

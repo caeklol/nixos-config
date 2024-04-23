@@ -9,6 +9,7 @@
     ../common
     ../common/nas.nix
     ../common/xmrig.nix
+    ../common/networking.nix
     ../common/desktop
     ../common/desktop/audio.nix
     ../common/desktop/nvidia.nix
@@ -17,7 +18,7 @@
   config = {
     desktop = {
       remote = true;
-      env = "hyprland";
+      env = "i3";
     };
 
     networking = {

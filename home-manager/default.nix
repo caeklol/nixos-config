@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   outputs,
   ...
 }: {
@@ -23,6 +24,7 @@
     ./editors/vscode.nix
 
     ./programs/prismlauncher.nix
+    ./programs/obsidian.nix
     ./programs/arduino.nix
     ./programs/fzf.nix
     ./programs/tmux.nix
