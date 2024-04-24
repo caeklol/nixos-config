@@ -74,11 +74,11 @@
       TERMINAL = "kitty";
     };
 
-    #wayland.windowManager.hyprland.settings = {
-    #  input = {
-    #    accel_profile = "flat";
-    #  };
-    #};
+    wayland.windowManager.hyprland.settings = {
+      input = {
+        accel_profile = "flat";
+      };
+    };
 
     xsession.windowManager.i3.config.startup = [
       {
@@ -89,6 +89,10 @@
         command = "xinput set-prop $(xinput list --id-only 'Glorious Model O') \"libinput Accel Profile Enabled\" 0 1 0";
         always = true;
       }
+	  {
+		command = "xinput set-prop $(xinput list --id-only 'Glorious Model O') \"libinput Middle Emulation Enabled\" 0";
+		always = true;
+	  }
     ];
   };
 }

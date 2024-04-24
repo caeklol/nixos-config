@@ -1,0 +1,24 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.virtualization;
+in {
+  options.modules.virtualization = {
+    enable = lib.mkEnableOption "enable virtualization module with virt-manager";
+  };
+
+  config = lib.mkIf cfg.virtualization.enable {
+	home.packages = with pkgs; [
+		virt-manager
+		virt-viewer
+		spice
+		spice-gtk
+		spice-protocol
+		win-virtio
+		win-spice
+	];
+  };
+}

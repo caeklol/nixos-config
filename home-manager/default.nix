@@ -18,6 +18,8 @@
   };
 
   imports = [
+    ./virtualization
+
     ./browsers/firefox.nix
 
     ./editors/neovim.nix

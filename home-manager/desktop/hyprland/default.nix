@@ -27,7 +27,7 @@ in {
       wl-clipboard
       grim
       slurp
-	  wofi
+	  fuzzel
     ];
 
     home.file.".config/waybar".source = ./waybar;
@@ -44,7 +44,7 @@ in {
         "$mod2" = modifier2;
         "$terminal" = "kitty";
         "$fileManager" = "${pkgs.cinnamon.nemo}/bin/nemo";
-        "$menu" = "wofi --show drun -i";
+        "$menu" = "fuzzel";
         "$screenshot" = "${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy -t image/png";
 
         exec = [

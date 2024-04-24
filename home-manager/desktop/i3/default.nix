@@ -21,6 +21,7 @@ in {
 	  apple-fonts
       maim
 	  xclip
+	  rofi
     ];
 
     home.file.polybar = {
@@ -71,6 +72,7 @@ in {
 
           keybindings = lib.mkOptionDefault {
             "${modifier}+Shift+s" = "exec maim -s -m 4 | xclip -selection clipboard -t image/png";
+            "${modifier}+d" = "exec rofi -show drun";
           };
 
           startup = [
