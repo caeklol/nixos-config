@@ -22,11 +22,14 @@
 		syncthing = true;
 	  };
       programs.arduino.enable = true;
+
       browsers.firefox.enable = true;
       editors.neovim.enable = true;
       editors.vscode.enable = true;
       shells.bash.enable = true;
       terminals.kitty.enable = true;
+
+	  virtualization.enable = true;
     };
 
     home.username = "caek";

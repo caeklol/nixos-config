@@ -66,8 +66,8 @@ in {
           };
 
           floating = {
-            titlebar = false;
-            border = 0;
+            titlebar = true;
+            border = 1;
           };
 
           keybindings = lib.mkOptionDefault {

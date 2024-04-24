@@ -10,6 +10,7 @@
     ../common/nas.nix
     ../common/xmrig.nix
     ../common/networking.nix
+    ../common/virtualization.nix
     ../common/desktop
     ../common/desktop/audio.nix
     ../common/desktop/nvidia.nix
