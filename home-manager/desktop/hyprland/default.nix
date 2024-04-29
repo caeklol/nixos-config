@@ -27,7 +27,7 @@ in {
       wl-clipboard
       grim
       slurp
-	  fuzzel
+      fuzzel
     ];
 
     home.file.".config/waybar".source = ./waybar;

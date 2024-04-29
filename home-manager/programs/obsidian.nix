@@ -13,7 +13,7 @@ in {
 
   config = lib.mkIf cfg.programs.obsidian.enable {
     home.packages = with pkgs; [
-		obsidian
+      obsidian
     ];
 
     services.syncthing.enable = cfg.programs.obsidian.syncthing;

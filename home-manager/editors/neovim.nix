@@ -21,19 +21,19 @@ in {
       '';
 
       extraConfig = ''
-              nnoremap Q "_
-        	  command Sw normal :SudaWrite
+                 nnoremap Q "_
+           	  command Sw normal :SudaWrite
 
-              au BufEnter * set noro
-              set number
-			  let g:coc_node_path = '${lib.getExe pkgs.nodejs_21}'
+                 au BufEnter * set noro
+                 set number
+        let g:coc_node_path = '${lib.getExe pkgs.nodejs_21}'
       '';
 
       plugins = with pkgs.vimPlugins; [
         suda-vim
-		coc-nvim
-		coc-eslint
-		coc-rust-analyzer
+        coc-nvim
+        coc-eslint
+        coc-rust-analyzer
         {
           plugin = presence-nvim;
           type = "lua";

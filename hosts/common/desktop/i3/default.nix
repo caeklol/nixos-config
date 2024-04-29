@@ -14,26 +14,24 @@ in {
     environment.pathsToLink = lib.mkIf enabled ["/libexec"];
 
     services = {
-	  displayManager = lib.mkIf enabled {
+      displayManager = lib.mkIf enabled {
         defaultSession = "none+i3";
       };
-	  
-	  xserver = lib.mkIf enabled {
-      enable = true;
 
-      desktopManager = {
-        xterm.enable = false;
-      };
-
-      
-
-      windowManager.i3 = {
+      xserver = lib.mkIf enabled {
         enable = true;
-        extraPackages = with pkgs; [
-          dmenu
-        ];
+
+        desktopManager = {
+          xterm.enable = false;
+        };
+
+        windowManager.i3 = {
+          enable = true;
+          extraPackages = with pkgs; [
+            dmenu
+          ];
+        };
       };
     };
-  };
   };
 }

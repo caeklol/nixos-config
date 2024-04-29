@@ -1,3 +1,3 @@
 {lib, ...}: {
-	networking.networkmanager.enable = true;
+  networking.networkmanager.enable = true;
 }

@@ -18,10 +18,10 @@ in {
       pavucontrol
       noto-fonts
       feh # background
-	  apple-fonts
+      apple-fonts
       maim
-	  xclip
-	  rofi
+      xclip
+      rofi
     ];
 
     home.file.polybar = {

@@ -36,38 +36,38 @@ stdenv.mkDerivation rec {
   dontUnpack = true;
 
   installPhase = ''
-    7z x ${pro}
-    cd SFProFonts
-    7z x 'SF Pro Fonts.pkg'
-    7z x 'Payload~'
-    mkdir -p $out/fontfiles
-    mv Library/Fonts/* $out/fontfiles
-    cd ..
+       7z x ${pro}
+       cd SFProFonts
+       7z x 'SF Pro Fonts.pkg'
+       7z x 'Payload~'
+       mkdir -p $out/fontfiles
+       mv Library/Fonts/* $out/fontfiles
+       cd ..
 
-    7z x ${mono}
-    cd SFMonoFonts
-    7z x 'SF Mono Fonts.pkg'
-    7z x 'Payload~'
-    mv Library/Fonts/* $out/fontfiles
-    cd ..
+       7z x ${mono}
+       cd SFMonoFonts
+       7z x 'SF Mono Fonts.pkg'
+       7z x 'Payload~'
+       mv Library/Fonts/* $out/fontfiles
+       cd ..
 
-    7z x ${compact}
-    cd SFCompactFonts
-    7z x 'SF Compact Fonts.pkg'
-    7z x 'Payload~'
-    mv Library/Fonts/* $out/fontfiles
-    cd ..
+       7z x ${compact}
+       cd SFCompactFonts
+       7z x 'SF Compact Fonts.pkg'
+       7z x 'Payload~'
+       mv Library/Fonts/* $out/fontfiles
+       cd ..
 
-    7z x ${ny}
-    cd NYFonts
-    7z x 'NY Fonts.pkg'
-    7z x 'Payload~'
-    mv Library/Fonts/* $out/fontfiles
+       7z x ${ny}
+       cd NYFonts
+       7z x 'NY Fonts.pkg'
+       7z x 'Payload~'
+       mv Library/Fonts/* $out/fontfiles
 
-	mkdir -p $out/share/fonts/opentype $out/share/fonts/truetype
-    mv $out/fontfiles/*.otf $out/share/fonts/opentype
-	mv $out/fontfiles/*.ttf $out/share/fonts/truetype
-    rm -rf $out/fontfiles
+    mkdir -p $out/share/fonts/opentype $out/share/fonts/truetype
+       mv $out/fontfiles/*.otf $out/share/fonts/opentype
+    mv $out/fontfiles/*.ttf $out/share/fonts/truetype
+       rm -rf $out/fontfiles
   '';
 
   meta = {

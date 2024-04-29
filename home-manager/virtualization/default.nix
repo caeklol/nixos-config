@@ -11,21 +11,22 @@ in {
   };
 
   config = lib.mkIf virtualization.enable {
-	home.packages = with pkgs; [
-		virt-manager
-		virt-viewer
-		spice
-		spice-gtk
-		spice-protocol
-		win-virtio
-		win-spice
-	];
+    home.packages = with pkgs; [
+      virt-manager
+      virt-viewer
+      spice
+      spice-gtk
+      spice-protocol
+      win-virtio
+      win-spice
+      virtiofsd
+    ];
 
-	dconf.settings = {
-	  "org/virt-manager/virt-manager/connections" = {
-		autoconnect = ["qemu:///system"];
-		uris = ["qemu:///system"];
-	  };
-	};
+    dconf.settings = {
+      "org/virt-manager/virt-manager/connections" = {
+        autoconnect = ["qemu:///system"];
+        uris = ["qemu:///system"];
+      };
+    };
   };
 }

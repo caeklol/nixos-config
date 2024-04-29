@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   config = {
-
     gtk = {
       enable = true;
       cursorTheme = {
@@ -28,13 +27,13 @@
       };
     };
 
-	qt = {
-		enable = true;
-		platformTheme = "gtk";
-		style = {
-			name = "qt5gtk2";
-			#package = pkgs.adwaita-qt;
-		};
-	};
+    qt = {
+      enable = true;
+      platformTheme = "gtk";
+      style = {
+        name = "qt5gtk2";
+        #package = pkgs.adwaita-qt;
+      };
+    };
   };
 }

@@ -35,6 +35,11 @@
     ];
   };
 
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+  };
+
   hardware.enableRedistributableFirmware = true;
   security.rtkit.enable = true;
   #  boot.loader.systemd-boot.enable = true;

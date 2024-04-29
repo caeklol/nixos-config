@@ -18,9 +18,9 @@
       programs.omp.enable = true;
       programs.prismlauncher.enable = true;
       programs.obsidian = {
-	  	enable = true;
-		syncthing = true;
-	  };
+        enable = true;
+        syncthing = true;
+      };
       programs.arduino.enable = true;
 
       browsers.firefox.enable = true;
@@ -29,7 +29,7 @@
       shells.bash.enable = true;
       terminals.kitty.enable = true;
 
-	  virtualization.enable = true;
+      virtualization.enable = true;
     };
 
     home.username = "caek";
@@ -43,7 +43,7 @@
       vesktop
       cinny-desktop
 
-	  cura
+      cura
 
       btop
       git
@@ -51,6 +51,7 @@
       yt-dlp
       ffmpeg
       tmux
+      devenv
 
       jetbrains.idea-community
       teams-for-linux
@@ -85,17 +86,17 @@
 
     xsession.windowManager.i3.config.startup = [
       {
-        command = "xrandr --output HDMI-0 --mode 1920x1080 --rate 144";
+        command = "xrandr --output DP-0 --mode 2560x1440 --rate 165";
         always = true;
       }
       {
         command = "xinput set-prop $(xinput list --id-only 'Glorious Model O') \"libinput Accel Profile Enabled\" 0 1 0";
         always = true;
       }
-	  {
-		command = "xinput set-prop $(xinput list --id-only 'Glorious Model O') \"libinput Middle Emulation Enabled\" 0";
-		always = true;
-	  }
+      {
+        command = "xinput set-prop $(xinput list --id-only 'Glorious Model O') \"libinput Middle Emulation Enabled\" 0";
+        always = true;
+      }
     ];
   };
 }
