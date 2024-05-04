@@ -29,7 +29,9 @@
 
     qt = {
       enable = true;
-      platformTheme = "gtk";
+      platformTheme = {
+	  	name = "gtk";
+	  };
       style = {
         name = "qt5gtk2";
         #package = pkgs.adwaita-qt;

@@ -26,7 +26,7 @@ in {
 
                  au BufEnter * set noro
                  set number
-        let g:coc_node_path = '${lib.getExe pkgs.nodejs_21}'
+        let g:coc_node_path = '${lib.getExe pkgs.nodejs_22}'
       '';
 
       plugins = with pkgs.vimPlugins; [

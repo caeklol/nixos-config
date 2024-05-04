@@ -6,13 +6,13 @@
 }:
 stdenv.mkDerivation rec {
   pname = "xmrig-switch";
-  version = "2";
+  version = "3";
 
   src = fetchFromGitHub {
     owner = "caeklol";
     repo = "xmrig-switch";
     rev = "master";
-    hash = "sha256-5S0XvH0pE8n5rX+wU1A1vgvd2Fnb4qPEbyWKi7fMWNQ=";
+    hash = "sha256-mmTvaPb3POAHp6hEBUkZSl3SdvKV8CG5+pGQTsRCLJY=";
   };
 
   buildInputs = with pkgs; [
