@@ -43,7 +43,7 @@
 		{
           "foreground": "#D75F00",
           "style": "plain",
-          "template": "λ ",
+          "template": "{{ .$.SHLVL }} ",
           "type": "text"
         }
       ],

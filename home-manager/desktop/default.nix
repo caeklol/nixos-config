@@ -35,5 +35,12 @@
         #package = pkgs.adwaita-qt;
       };
     };
+
+    home.pointerCursor = {
+      x11.enable = true;
+      name = "macOS-Monterey";
+      package = pkgs.apple-cursor;
+      size = 24;
+    };
   };
 }

@@ -46,9 +46,9 @@
     documents = "${config.home.homeDirectory}";
     download = "${config.home.homeDirectory}/downloads";
     music = "${config.home.homeDirectory}";
-    pictures = "${config.home.homeDirectory}/pictures";
+    pictures = "${config.home.homeDirectory}";
     templates = "${config.home.homeDirectory}";
-    videos = "${config.home.homeDirectory}/videos";
+    videos = "${config.home.homeDirectory}";
   };
 
   news = {

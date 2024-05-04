@@ -16,4 +16,6 @@
       ./ssh/authorized_keys
     ];
   };
+
+  nix.settings.trusted-users = ["root" "caek"];
 }
