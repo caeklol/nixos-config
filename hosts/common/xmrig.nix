@@ -32,9 +32,8 @@
   configJson = builtins.toJSON miner_cfg;
   configFile = pkgs.writeText "config.json" configJson;
 in {
-
   imports = [
-	inputs.xmrig-switch.nixosModules.default
+    inputs.xmrig-switch.nixosModules.default
   ];
 
   config = {
@@ -51,6 +50,6 @@ in {
       };
     };
 
-	programs.xmrig-switch.enable = true;
+    programs.xmrig-switch.enable = true;
   };
 }
