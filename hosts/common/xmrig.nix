@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   pkgs,
   lib,
@@ -31,6 +32,11 @@
   configJson = builtins.toJSON miner_cfg;
   configFile = pkgs.writeText "config.json" configJson;
 in {
+
+  imports = [
+	inputs.xmrig-switch.nixosModules.default
+  ];
+
   config = {
     hardware.cpu.x86.msr.enable = true;
 
@@ -45,17 +51,6 @@ in {
       };
     };
 
-    systemd.services.xmrig-switch = {
-      wantedBy = ["multi-user.target"];
-      after = ["network.target"];
-      description = "XMRig Controller using input from Serial";
-      serviceConfig = {
-        ExecStart = "${lib.getExe pkgs.xmrig-switch}";
-        DynamicUser = false;
-        StandardError = "journal";
-        StandardOutput = "journal";
-        StandardInput = null;
-      };
-    };
+	programs.xmrig-switch.enable = true;
   };
 }
