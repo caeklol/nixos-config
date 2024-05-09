@@ -1,10 +1,13 @@
-{ pkgs, lib, ... }:
 {
-	config = {
-		environment.systemPackages = with pkgs; [
-		  lxqt.lxqt-policykit
-		];
+  pkgs,
+  lib,
+  ...
+}: {
+  config = {
+    environment.systemPackages = with pkgs; [
+      lxqt.lxqt-policykit
+    ];
 
-		security.polkit.enable = true;
-	};
+    security.polkit.enable = true;
+  };
 }

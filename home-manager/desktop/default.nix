@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-	./polkit.nix
+    ./polkit.nix
   ];
   config = {
     gtk = {
