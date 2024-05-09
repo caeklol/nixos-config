@@ -67,7 +67,7 @@
       steam
       krita
       gparted
-      font-manager
+      #font-manager
       bruno
     ];
 
