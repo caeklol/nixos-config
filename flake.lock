@@ -119,11 +119,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1715065668,
-        "narHash": "sha256-ZkCKHg9TS2mBwUNR9pQlUrLJyqMdL4ooU9B8Mo+9LNI=",
+        "lastModified": 1715253446,
+        "narHash": "sha256-k8dXKTe0kDavfRIH0I+YWC3Or0/OxRi5HsafqQGflg0=",
         "owner": "caeklol",
         "repo": "xmrig-switch",
-        "rev": "557e8c8d4caf5f28d34390ce97a9ec3d63e7ea17",
+        "rev": "4a75703057ed3e79b7cdb85db18eb1d2ee3cab5d",
         "type": "github"
       },
       "original": {
