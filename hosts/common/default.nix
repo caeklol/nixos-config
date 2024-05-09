@@ -50,5 +50,7 @@
   boot.loader.grub.efiSupport = true;
   boot.supportedFilesystems = ["ntfs"];
 
+  systemd.services.NetworkManager-wait-online.enable = false;
+
   system.stateVersion = "unstable";
 }
