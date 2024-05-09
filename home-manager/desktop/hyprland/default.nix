@@ -4,7 +4,7 @@
   ...
 }: let
   wallpaper = builtins.path {
-    path = ../wallpaper.png;
+    path = ../wallpaper/wallpaper.png;
     name = "hyprland-wallpaper";
   };
 
