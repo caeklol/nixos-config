@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./remote.nix
+    ./polkit.nix
     ./i3
     ./gnome.nix
     ./hyprland.nix
@@ -28,11 +29,5 @@
     };
 
     programs.dconf.enable = true;
-
-	environment.systemPackages = with pkgs; [
-      lxqt.lxqt-policykit
-	];
-
-    security.polkit.enable = lib.mkForce true;
   };
 }

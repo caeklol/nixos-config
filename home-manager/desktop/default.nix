@@ -1,4 +1,7 @@
 {pkgs, ...}: {
+  imports = [
+	./polkit.nix
+  ];
   config = {
     gtk = {
       enable = true;
