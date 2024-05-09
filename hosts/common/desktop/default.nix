@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   ...
 }: {
@@ -27,5 +28,11 @@
     };
 
     programs.dconf.enable = true;
+
+	environment.systemPackages = with pkgs; [
+      lxqt.lxqt-policykit
+	];
+
+    security.polkit.enable = lib.mkForce true;
   };
 }

@@ -9,7 +9,6 @@ in
   lib.mkIf enabled {
     environment.systemPackages = with pkgs; [
       greetd.tuigreet
-      lxqt.lxqt-policykit
     ];
 
     environment.sessionVariables = {
@@ -21,8 +20,6 @@ in
 
     xdg.portal.enable = true;
     xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-hyprland];
-
-    security.polkit.enable = lib.mkForce true;
 
     systemd.services.greetd.serviceConfig = {
       Type = "idle";
