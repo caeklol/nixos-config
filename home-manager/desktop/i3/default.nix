@@ -100,5 +100,21 @@ in {
       script = "exit 0";
       config = ./polybar.ini;
     };
+
+	services.picom = {
+		enable = true;
+		vSync = true;
+		backend = "glx";
+		settings = {
+			blur = {
+				method = "dual_kawase";
+				strength = 6;
+			};
+
+			blur-background-exclude = [
+				"class_g = 'slop'"
+			];
+		};
+	};
   };
 }
