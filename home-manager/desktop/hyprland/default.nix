@@ -22,7 +22,6 @@
 in {
   config = {
     home.packages = with pkgs; [
-      cinnamon.nemo
       hyprpaper
       wl-clipboard
       grim

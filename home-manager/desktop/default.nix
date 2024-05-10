@@ -41,6 +41,17 @@
       };
     };
 
+	home.packages = with pkgs; [
+      cinnamon.nemo
+	];
+
+	xdg = {
+		mime.enable = true;
+		mimeApps.associations.added = {
+			"inode/directory" = "nemo.desktop";
+		};
+	};
+
     home.pointerCursor = {
       x11.enable = true;
       name = "macOS-Monterey";

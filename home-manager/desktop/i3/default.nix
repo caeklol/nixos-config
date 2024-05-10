@@ -21,7 +21,6 @@ in {
       apple-fonts
       maim
       xclip
-      cinnamon.nemo
       rofi
     ];
 
