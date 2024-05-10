@@ -14,26 +14,30 @@ in {
     programs.neovim = {
       enable = true;
       extraLuaConfig = ''
-              vim.opt.tabstop = 4
-              vim.opt.shiftwidth = 4
-              vim.opt.expandtab = false
-        vim.g.mapleader = "\\"
+        vim.opt.tabstop = 4
+        vim.opt.shiftwidth = 4
+        vim.opt.expandtab = false
+    	vim.g.mapleader = "\\"
       '';
 
       extraConfig = ''
-                 nnoremap Q "_
-           	  command Sw normal :SudaWrite
+            nnoremap Q "_
+           	command Sw normal :SudaWrite
 
-                 au BufEnter * set noro
-                 set number
-        let g:coc_node_path = '${lib.getExe pkgs.nodejs_22}'
+            au BufEnter * set noro
+            set relativenumber
       '';
 
       plugins = with pkgs.vimPlugins; [
         suda-vim
-        coc-nvim
         coc-eslint
         coc-rust-analyzer
+		{
+			plugin = coc-nvim;
+			config = ''
+        		let g:coc_node_path = '${lib.getExe pkgs.nodejs_22}'
+			'';
+		}
         {
           plugin = presence-nvim;
           type = "lua";
