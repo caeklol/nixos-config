@@ -100,20 +100,20 @@ in {
       config = ./polybar.ini;
     };
 
-	services.picom = {
-		enable = true;
-		vSync = true;
-		backend = "glx";
-		settings = {
-			blur = {
-				method = "dual_kawase";
-				strength = 10;
-			};
+    services.picom = {
+      enable = true;
+      vSync = true;
+      backend = "glx";
+      settings = {
+        blur = {
+          method = "dual_kawase";
+          strength = 10;
+        };
 
-			blur-background-exclude = [
-				"class_g = 'slop'"
-			];
-		};
-	};
+        blur-background-exclude = [
+          "class_g = 'slop'"
+        ];
+      };
+    };
   };
 }
