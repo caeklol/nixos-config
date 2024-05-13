@@ -26,8 +26,6 @@ in {
 
       extraConfig = ''
         map ctrl+shift+t new_tab_with_cwd
-		background_opacity 0.5
-		background_blur 1
       '';
     };
 

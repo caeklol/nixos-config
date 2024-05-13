@@ -22,7 +22,7 @@
 
     ./browsers/firefox.nix
 
-    ./editors/neovim.nix
+    ./editors/neovim
     ./editors/vscode.nix
 
     ./programs/prismlauncher.nix

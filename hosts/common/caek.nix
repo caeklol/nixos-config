@@ -11,7 +11,7 @@
       home-manager
       vim
     ];
-    shell = pkgs.bash;
+    shell = pkgs.bashInteractive;
     openssh.authorizedKeys.keyFiles = [
       ./ssh/authorized_keys
     ];

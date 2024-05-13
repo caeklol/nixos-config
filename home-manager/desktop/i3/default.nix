@@ -107,7 +107,7 @@ in {
 		settings = {
 			blur = {
 				method = "dual_kawase";
-				strength = 6;
+				strength = 10;
 			};
 
 			blur-background-exclude = [

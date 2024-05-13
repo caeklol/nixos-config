@@ -30,14 +30,14 @@ in {
 
       plugins = with pkgs.vimPlugins; [
         suda-vim
-        coc-eslint
-        coc-rust-analyzer
 		{
 			plugin = coc-nvim;
 			config = ''
         		let g:coc_node_path = '${lib.getExe pkgs.nodejs_22}'
 			'';
 		}
+        coc-eslint
+        coc-rust-analyzer
         {
           plugin = presence-nvim;
           type = "lua";
