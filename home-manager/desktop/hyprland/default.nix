@@ -53,7 +53,7 @@ in {
         ];
 
         exec-once = [
-          "which wayvnc && wayvnc -o HDMI-A-1 0.0.0.0"
+          "which wayvnc && wayvnc -o DP-1 0.0.0.0"
           "lxqt-policykit-agent"
           "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         ];

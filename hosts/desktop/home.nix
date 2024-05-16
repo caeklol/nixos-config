@@ -79,7 +79,7 @@
 
     wayland.windowManager.hyprland.settings = {
       input = {
-	    sensitivity = 0.55;
+		sensitivity = 0.51;
         accel_profile = "flat";
       };
     };
