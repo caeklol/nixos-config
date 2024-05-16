@@ -1,18 +1,16 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }: let
-  wallpaper = builtins.path {
-    path = ../wallpaper/wallpaper.png;
-    name = "hyprland-wallpaper";
-  };
+  enable = config.desktop.enable && config.desktop.env == "hyprland" ;
 
   hyprpaper-config = pkgs.writeTextFile {
     name = "hyprpaper-config";
     text = ''
-      preload = ${wallpaper}
-      wallpaper = DP-1,${wallpaper}
+      preload = ${config.desktop.wallpaper}
+      wallpaper = ${config.desktop.monitor.name},${config.desktop.wallpaper}
       splash = false
     '';
   };
@@ -20,7 +18,7 @@
   modifier = "ALT";
   modifier2 = "SHIFT";
 in {
-  config = {
+  config = lib.mkIf enable {
     home.packages = with pkgs; [
       hyprpaper
       wl-clipboard
@@ -96,6 +94,13 @@ in {
               )
               10)
           );
+
+		monitor = "${config.desktop.monitor.name},${config.desktop.monitor.resolution}@${builtins.toString config.desktop.monitor.refreshRate},0x0,1";
+
+		env = [
+			"XCURSOR_SIZE,24"
+			"QT_QPA_PLATFORMTHEME,at5ct"
+		];
       };
 
       extraConfig = builtins.readFile ./hyprland.conf;

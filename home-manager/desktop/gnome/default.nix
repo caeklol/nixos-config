@@ -4,12 +4,9 @@
   pkgs,
   ...
 }: let
-  wallpaper = builtins.path {
-    path = ../wallpaper.png;
-    name = "gnome-wallpaper";
-  };
+  enable = config.desktop.enable && config.desktop.env == "gnome" ;
 in {
-  config = {
+  config = lib.mkIf enable {
     home.packages = with pkgs; [
       gnome.gnome-tweaks
 
@@ -48,7 +45,7 @@ in {
 
       "org/gnome/desktop/background" = {
         picture-options = "zoom";
-        picture-uri-dark = wallpaper;
+        picture-uri-dark = config.desktop.wallpaper;
       };
 
       "org/gnome/desktop/input-sources" = {

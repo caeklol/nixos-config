@@ -12,6 +12,16 @@
   ];
 
   config = {
+	desktop = {
+		enable = true;
+		env = "hyprland";
+		monitor = {
+			name = "DP-1";
+			resolution = "2560x1440";
+			refreshRate = 165;
+		};
+	};
+
     modules = {
       programs.fzf.enable = true;
       programs.tmux.enable = true;
@@ -83,20 +93,5 @@
         accel_profile = "flat";
       };
     };
-
-    xsession.windowManager.i3.config.startup = [
-      {
-        command = "xrandr --output DP-0 --mode 2560x1440 --rate 165";
-        always = true;
-      }
-      {
-        command = "xinput set-prop $(xinput list --id-only 'Glorious Model O') \"libinput Accel Profile Enabled\" 0 1 0";
-        always = true;
-      }
-      {
-        command = "xinput set-prop $(xinput list --id-only 'Glorious Model O') \"libinput Middle Emulation Enabled\" 0";
-        always = true;
-      }
-    ];
   };
 }

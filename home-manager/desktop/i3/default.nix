@@ -5,14 +5,10 @@
   pkgs,
   ...
 }: let
-  wallpaper = builtins.path {
-    path = ../wallpaper/wallpaper.png;
-    name = "i3-wallpaper";
-  };
-
+  enable = config.desktop.enable && config.desktop.env == "i3";
   modifier = "Mod1";
 in {
-  config = {
+  config = lib.mkIf enable {
     home.packages = with pkgs; [
       polybar-pulseaudio-control
       pavucontrol
@@ -78,14 +74,17 @@ in {
 
           startup = [
             {
-              command = "feh --bg-fill -z ${wallpaper}";
-              always = true;
+				command = "feh --bg-fill -z ${config.desktop.wallpaper}";
+				always = true;
             }
-
             {
-              command = "~/.config/polybar/start.sh";
-              always = true;
+				command = "~/.config/polybar/start.sh";
+				always = true;
             }
+			{
+				command = "xrandr --output ${config.desktop.monitor.name} --mode ${config.desktop.monitor.resolution} --rate ${builtins.toString config.desktop.monitor.refreshRate}";
+				always = true;
+			}
           ];
         };
       };
