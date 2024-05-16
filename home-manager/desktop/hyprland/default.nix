@@ -12,7 +12,7 @@
     name = "hyprpaper-config";
     text = ''
       preload = ${wallpaper}
-      wallpaper = HDMI-A-1,${wallpaper}
+      wallpaper = DP-1,${wallpaper}
       splash = false
     '';
   };
