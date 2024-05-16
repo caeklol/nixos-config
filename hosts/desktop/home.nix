@@ -8,7 +8,7 @@
   imports = [
     ../../home-manager
     ../../home-manager/desktop
-    ../../home-manager/desktop/i3 # TODO: Make into option (config = desktop.enable, desktop.env)
+    ../../home-manager/desktop/hyprland # TODO: Make into option (config = desktop.enable, desktop.env)
   ];
 
   config = {
@@ -67,7 +67,6 @@
       steam
       krita
       gparted
-      #font-manager
       bruno
     ];
 
@@ -80,6 +79,7 @@
 
     wayland.windowManager.hyprland.settings = {
       input = {
+	    sensitivity = 0.55;
         accel_profile = "flat";
       };
     };
