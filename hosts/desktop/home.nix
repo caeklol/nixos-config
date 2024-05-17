@@ -62,6 +62,8 @@
       ffmpeg
       tmux
       devenv
+	  gnupg
+	  gpg-tui
 
       jetbrains.idea-community
       teams-for-linux
