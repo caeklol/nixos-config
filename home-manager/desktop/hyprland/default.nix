@@ -51,9 +51,9 @@ in {
         ];
 
         exec-once = [
-          "which wayvnc && wayvnc -o DP-1 0.0.0.0"
-          "lxqt-policykit-agent"
+          "which wayvnc && wayvnc -o ${config.desktop.monitor.name} 0.0.0.0"
           "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+          "lxqt-policykit-agent"
         ];
 
         bindm = [
@@ -101,9 +101,56 @@ in {
 			"XCURSOR_SIZE,24"
 			"QT_QPA_PLATFORMTHEME,at5ct"
 		];
-      };
 
-      extraConfig = builtins.readFile ./hyprland.conf;
+		input = {
+			kb_layout = "us";
+			follow_mouse = 1;
+
+			touchpad = {
+				natural_scroll = false;
+			};
+		};
+
+		general = {
+			gaps_in = 0;
+			gaps_out = 0;
+			border_size = 0;
+			layout = "dwindle";
+			allow_tearing = false;
+		};
+
+		decoration = {
+			blur = {
+				enabled = true;
+				size = 3;
+				passes = 3;
+				new_optimizations = true;
+				vibrancy = 0.1696;
+				xray = true;
+			};
+		};
+
+		animations = {
+			enabled = false;
+		};
+
+		dwindle = {
+			pseudotile = true;
+			preserve_split = true;
+		};
+
+		master = {
+			new_is_master = true;
+		};
+
+		gestures = {
+			workspace_swipe = false;
+		};
+
+		misc = {
+			force_default_wallpaper = 0;
+		};
+      };
     };
   };
 }
