@@ -80,6 +80,7 @@
       krita
       gparted
       bruno
+	  mpv
     ];
 
     fonts.fontconfig.enable = true;

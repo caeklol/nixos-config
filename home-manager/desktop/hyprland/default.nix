@@ -126,7 +126,7 @@ in {
 				passes = 3;
 				new_optimizations = true;
 				vibrancy = 0.1696;
-				xray = true;
+				xray = false;
 			};
 		};
 
