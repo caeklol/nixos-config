@@ -73,6 +73,7 @@
       blender
       google-chrome
       telegram-desktop
+	  tor-browser
 
       spotify
       ngrok
@@ -81,6 +82,7 @@
       gparted
       bruno
 	  mpv
+	  pavucontrol
     ];
 
     fonts.fontconfig.enable = true;
