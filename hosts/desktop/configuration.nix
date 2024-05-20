@@ -27,6 +27,6 @@
       nameservers = ["1.1.1.1"];
     };
 
-    boot.loader.grub.gfxmodeEfi = "1920x1080";
+    boot.loader.grub.gfxmodeEfi = "2560x1440";
   };
 }
