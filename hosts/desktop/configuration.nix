@@ -19,7 +19,7 @@
   config = {
     desktop = {
       remote = true;
-      env = "i3";
+      env = "hyprland";
     };
 
     networking = {
