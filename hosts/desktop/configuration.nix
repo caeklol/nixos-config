@@ -7,7 +7,6 @@
     ./hardware-configuration.nix
 
     ../common
-    ../common/nas.nix
     ../common/xmrig.nix
     ../common/networking.nix
     ../common/virtualization.nix
