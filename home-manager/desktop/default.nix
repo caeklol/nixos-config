@@ -1,4 +1,4 @@
-{pkgs, lib, ...}: {
+{config, pkgs, lib, ...}: {
   imports = [
     ./polkit.nix
 	./hyprland
@@ -58,17 +58,43 @@
       };
 
       iconTheme = {
-        name = "WhiteSur";
-        package = pkgs.whitesur-icon-theme;
+        name = "Colloid";
+        package = pkgs.colloid-icon-theme;
       };
 
       theme = {
-        name = "Catppuccin-Mocha-Standard-Teal-Dark";
-        package = pkgs.catppuccin-gtk.override {
-          accents = ["teal" "blue"];
-          variant = "mocha";
-        };
+        name = "WhiteSur-Dark";
+        package = pkgs.whitesur-gtk-theme.override {
+			colorVariants = ["Dark"];
+			nautilusStyle = "glassy";
+		};
       };
+ gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
+		gtk3 = {
+		  #bookmarks = [
+		  #  "file://${config.home.homeDirectory}/Documents"
+		  #  "file://${config.home.homeDirectory}/Downloads"
+		  #  "file://${config.home.homeDirectory}/Music"
+		  #  "file://${config.home.homeDirectory}/Pictures"
+		  #  "file://${config.home.homeDirectory}/Videos"
+		  #];
+		  extraConfig = {
+			gtk-xft-antialias = 1;
+			gtk-xft-hinting = 1;
+			gtk-xft-hintstyle = "hintfull";
+			gtk-xft-rgba = "rgb";
+			gtk-application-prefer-dark-theme = 1;
+		  };
+		};
+
+		gtk2.extraConfig = ''
+		  gtk-xft-antialias=1
+		  gtk-xft-hinting=1
+		  gtk-xft-hintstyle="hintslight"
+		  gtk-xft-rgba="rgb"
+		'';
+
+		gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
     };
 
     qt = {
@@ -83,13 +109,17 @@
     };
 
     home.packages = with pkgs; [
-      cinnamon.nemo
+	  gnome.file-roller
+	  gnome.nautilus
+      gnome.nautilus-python 		# sorry but nautilus is just good
+      nautilus-open-any-terminal
     ];
 
     xdg = {
       mime.enable = true;
       mimeApps.associations.added = {
         "inode/directory" = "nemo.desktop";
+        "image/*" = "mpv.desktop";
       };
     };
 

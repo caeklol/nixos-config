@@ -78,7 +78,7 @@
       spotify
       ngrok
       steam
-      krita
+      gimp
       gparted
       bruno
 	  mpv
