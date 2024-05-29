@@ -15,6 +15,10 @@
 	desktop = {
 		enable = true;
 		env = "hyprland";
+		wallpaper = builtins.path {
+			path = ./wallpaper/leaves.png;
+			name = "wallpaper";
+		};
 		monitor = {
 			name = "DP-1";
 			resolution = "2560x1440";
