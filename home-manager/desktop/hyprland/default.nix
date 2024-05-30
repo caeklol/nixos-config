@@ -95,7 +95,10 @@ in {
               10)
           );
 
-		monitor = "${config.desktop.monitor.name},${config.desktop.monitor.resolution}@${builtins.toString config.desktop.monitor.refreshRate},0x0,1";
+		monitor = [
+			"${config.desktop.monitor.name},${config.desktop.monitor.resolution}@${builtins.toString config.desktop.monitor.refreshRate},0x0,1"
+			"Unknown-1,disable"
+		];
 
 		env = [
 			"XCURSOR_SIZE,24"
