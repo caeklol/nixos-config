@@ -11,6 +11,7 @@ in {
   };
 
   config = lib.mkIf neovim.enable {
+
     programs.neovim = {
       enable = true;
       extraLuaConfig = ''
@@ -29,7 +30,7 @@ in {
       '';
 
       plugins = with pkgs.vimPlugins; [
-        suda-vim
+	    vim-suda
         {
           plugin = coc-nvim;
           config = ''
@@ -114,8 +115,6 @@ in {
       ];
     };
 
-    home.sessionVariables = {
-      EDITOR = "nvim";
-    };
+    home.sessionVariables.EDITOR = lib.mkForce "nvim"; # neovim has higher priority because
   };
 }

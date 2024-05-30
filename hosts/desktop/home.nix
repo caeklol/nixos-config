@@ -16,7 +16,7 @@
 		enable = true;
 		env = "hyprland";
 		wallpaper = builtins.path {
-			path = ./wallpaper/leaves.png;
+			path = ../../home-manager/desktop/wallpaper/leaves.png;
 			name = "wallpaper";
 		};
 		monitor = {
@@ -39,7 +39,6 @@
 
       browsers.firefox.enable = true;
       editors.neovim.enable = true;
-      editors.vscode.enable = true;
       shells.bash.enable = true;
       terminals.kitty.enable = true;
 
@@ -88,13 +87,6 @@
 	  mpv
 	  pavucontrol
     ];
-
-    fonts.fontconfig.enable = true;
-
-    home.sessionVariables = {
-      EDITOR = "nvim";
-      TERMINAL = "kitty";
-    };
 
     wayland.windowManager.hyprland.settings = {
       input = {

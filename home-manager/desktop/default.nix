@@ -66,35 +66,8 @@
         name = "WhiteSur-Dark";
         package = pkgs.whitesur-gtk-theme.override {
 			colorVariants = ["Dark"];
-			nautilusStyle = "glassy";
 		};
       };
- gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
-		gtk3 = {
-		  #bookmarks = [
-		  #  "file://${config.home.homeDirectory}/Documents"
-		  #  "file://${config.home.homeDirectory}/Downloads"
-		  #  "file://${config.home.homeDirectory}/Music"
-		  #  "file://${config.home.homeDirectory}/Pictures"
-		  #  "file://${config.home.homeDirectory}/Videos"
-		  #];
-		  extraConfig = {
-			gtk-xft-antialias = 1;
-			gtk-xft-hinting = 1;
-			gtk-xft-hintstyle = "hintfull";
-			gtk-xft-rgba = "rgb";
-			gtk-application-prefer-dark-theme = 1;
-		  };
-		};
-
-		gtk2.extraConfig = ''
-		  gtk-xft-antialias=1
-		  gtk-xft-hinting=1
-		  gtk-xft-hintstyle="hintslight"
-		  gtk-xft-rgba="rgb"
-		'';
-
-		gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
     };
 
     qt = {
@@ -109,10 +82,8 @@
     };
 
     home.packages = with pkgs; [
-	  gnome.file-roller
-	  gnome.nautilus
-      gnome.nautilus-python 		# sorry but nautilus is just good
-      nautilus-open-any-terminal
+	  # okay maybe nautilus isn't that good not WHY DOES libadwaita IGNORE THEMES
+	  (cinnamon.nemo-with-extensions.override { extensions = with cinnamon; [ nemo-fileroller ]; })
     ];
 
     xdg = {
@@ -129,5 +100,14 @@
       package = pkgs.apple-cursor;
       size = 24;
     };
+
+	services.udiskie = {
+		enable = true;
+		automount = true;
+		notify = false;
+		tray = "never";
+	};
+
+	  fonts.fontconfig.enable = true;
   };
 }

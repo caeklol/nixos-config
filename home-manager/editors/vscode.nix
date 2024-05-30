@@ -11,6 +11,8 @@ in {
   };
 
   config = lib.mkIf cfg.editors.vscode.enable {
+    home.sessionVariables.EDITOR = "code";
+
     home.packages = with pkgs; [
       (vscode-with-extensions.override {
         vscodeExtensions = with vscode-extensions; [

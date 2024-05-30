@@ -7,6 +7,7 @@
   imports = [
     ./remote.nix
     ./polkit.nix
+    ./udisks2.nix
     ./i3
     ./gnome.nix
     ./hyprland.nix

@@ -11,6 +11,9 @@ in {
   };
 
   config = lib.mkIf cfg.terminals.kitty.enable {
+
+    home.sessionVariables.TERMINAL = "kitty";
+
     programs.kitty = {
       enable = true;
       font = {
@@ -27,10 +30,6 @@ in {
       extraConfig = ''
         map ctrl+shift+t new_tab_with_cwd
       '';
-    };
-
-    home.sessionVariables = {
-      TERMINAL = "kitty";
     };
   };
 }
