@@ -58,27 +58,23 @@
       };
 
       iconTheme = {
-        name = "Colloid";
-        package = pkgs.colloid-icon-theme;
+        name = "WhiteSur";
+        package = pkgs.whitesur-icon-theme;
       };
 
       theme = {
-        name = "WhiteSur-Dark";
-        package = pkgs.whitesur-gtk-theme.override {
-			colorVariants = ["Dark"];
+        name = "Catppuccin-Mocha-Standard-Teal-Dark";
+        package = pkgs.catppuccin-gtk.override {
+			accents = ["teal"];
+			variant = "mocha";
 		};
       };
     };
 
     qt = {
       enable = true;
-      platformTheme = {
-        name = "gtk";
-      };
-      style = {
-        name = "qt5gtk2";
-        #package = pkgs.adwaita-qt;
-      };
+      platformTheme.name = "gtk2";
+      style.name = "gtk2";
     };
 
     home.packages = with pkgs; [
