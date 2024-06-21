@@ -68,7 +68,7 @@
 	  gnupg
 	  gpg-tui
 
-      jetbrains.idea-community
+      # jetbrains.idea-community
       teams-for-linux
       tor-browser
       obs-studio
