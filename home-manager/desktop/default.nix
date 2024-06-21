@@ -79,7 +79,9 @@
 
     home.packages = with pkgs; [
 	  # okay maybe nautilus isn't that good not WHY DOES libadwaita IGNORE THEMES
-	  (cinnamon.nemo-with-extensions.override { extensions = with cinnamon; [ nemo-fileroller ]; })
+	  # nevermind problem resolved itself
+	  gnome.nautilus
+	  #(cinnamon.nemo-with-extensions.override { extensions = with cinnamon; [ nemo-fileroller ]; })
     ];
 
     xdg = {

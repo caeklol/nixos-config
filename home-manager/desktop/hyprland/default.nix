@@ -153,6 +153,11 @@ in {
 		misc = {
 			force_default_wallpaper = 0;
 		};
+
+		windowrulev2 = [
+			"float, initialclass:org.gnome.Nautilus"
+			"size 45% 50%, initialclass:org.gnome.Nautilus"
+		];
       };
     };
   };
