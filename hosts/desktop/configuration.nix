@@ -9,6 +9,7 @@
     ../common
     ../common/nas.nix
     ../common/xmrig.nix
+    ../common/mullvad.nix
     ../common/networking.nix
     ../common/virtualization.nix
     ../common/desktop

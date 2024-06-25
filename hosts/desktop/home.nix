@@ -72,7 +72,6 @@
       teams-for-linux
       tor-browser
       obs-studio
-      expressvpn
       blender
       google-chrome
       telegram-desktop
