@@ -76,6 +76,7 @@
       google-chrome
       telegram-desktop
 	  tor-browser
+	  mullvad-browser
 
       spotify
       ngrok
