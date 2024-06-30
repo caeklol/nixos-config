@@ -40,7 +40,7 @@
   services.avahi = {
     enable = true;
     nssmdns4 = true;
-	openFirewall = true; # printing
+    openFirewall = true; # printing
   };
 
   hardware.enableRedistributableFirmware = true;

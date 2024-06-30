@@ -4,7 +4,7 @@
   description = "caek's NixOS Config";
 
   inputs = {
-    stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     xmrig-switch.url = "github:caeklol/xmrig-switch";

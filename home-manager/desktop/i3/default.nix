@@ -74,17 +74,17 @@ in {
 
           startup = [
             {
-				command = "feh --bg-fill -z ${config.desktop.wallpaper}";
-				always = true;
+              command = "feh --bg-fill -z ${config.desktop.wallpaper}";
+              always = true;
             }
             {
-				command = "~/.config/polybar/start.sh";
-				always = true;
+              command = "~/.config/polybar/start.sh";
+              always = true;
             }
-			{
-				command = "xrandr --output ${config.desktop.monitor.name} --mode ${config.desktop.monitor.resolution} --rate ${builtins.toString config.desktop.monitor.refreshRate}";
-				always = true;
-			}
+            {
+              command = "xrandr --output ${config.desktop.monitor.name} --mode ${config.desktop.monitor.resolution} --rate ${builtins.toString config.desktop.monitor.refreshRate}";
+              always = true;
+            }
           ];
         };
       };

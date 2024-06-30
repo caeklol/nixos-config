@@ -11,7 +11,6 @@ in {
   };
 
   config = lib.mkIf neovim.enable {
-
     programs.neovim = {
       enable = true;
       extraLuaConfig = ''
@@ -30,7 +29,7 @@ in {
       '';
 
       plugins = with pkgs.vimPlugins; [
-	    vim-suda
+        vim-suda
         {
           plugin = coc-nvim;
           config = ''

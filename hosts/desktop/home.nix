@@ -12,19 +12,19 @@
   ];
 
   config = {
-	desktop = {
-		enable = true;
-		env = "hyprland";
-		wallpaper = builtins.path {
-			path = ../../home-manager/desktop/wallpaper/leaves.png;
-			name = "wallpaper";
-		};
-		monitor = {
-			name = "DP-1";
-			resolution = "2560x1440";
-			refreshRate = 165;
-		};
-	};
+    desktop = {
+      enable = true;
+      env = "hyprland";
+      wallpaper = builtins.path {
+        path = ../../home-manager/desktop/wallpaper/leaves.png;
+        name = "wallpaper";
+      };
+      monitor = {
+        name = "DP-1";
+        resolution = "2560x1440";
+        refreshRate = 165;
+      };
+    };
 
     modules = {
       programs.fzf.enable = true;
@@ -65,8 +65,8 @@
       ffmpeg
       tmux
       devenv
-	  gnupg
-	  gpg-tui
+      gnupg
+      gpg-tui
 
       # jetbrains.idea-community
       teams-for-linux
@@ -75,8 +75,8 @@
       blender
       google-chrome
       telegram-desktop
-	  tor-browser
-	  mullvad-browser
+      tor-browser
+      mullvad-browser
 
       spotify
       ngrok
@@ -84,13 +84,13 @@
       gimp
       gparted
       bruno
-	  mpv
-	  pavucontrol
+      mpv
+      pavucontrol
     ];
 
     wayland.windowManager.hyprland.settings = {
       input = {
-		sensitivity = 0.51;
+        sensitivity = 0.51;
         accel_profile = "flat";
       };
     };

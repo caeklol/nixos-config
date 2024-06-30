@@ -1,46 +1,51 @@
-{config, pkgs, lib, ...}: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ./polkit.nix
-	./hyprland
-	./i3
-	./gnome
+    ./hyprland
+    ./i3
+    ./gnome
   ];
 
   options = {
-	desktop = {
-		enable = lib.mkEnableOption "desktop";
-		env = lib.mkOption {
-			description = "desktop environment"; # As in, the actual
-			type = lib.types.enum ["hyprland" "i3" "gnome"];
-		};
-		wallpaper = lib.mkOption {
-			description = "path to wallpaper";
-			default = builtins.path {
-				path = ./wallpaper/wallpaper.png;
-				name = "wallpaper";
-			};
-			type = lib.types.path;
-		};
-		monitor = {
-			name = lib.mkOption {
-				description = "display to use";
-				example = "DP-1";
-				type = lib.types.str;
-			};
+    desktop = {
+      enable = lib.mkEnableOption "desktop";
+      env = lib.mkOption {
+        description = "desktop environment"; # As in, the actual
+        type = lib.types.enum ["hyprland" "i3" "gnome"];
+      };
+      wallpaper = lib.mkOption {
+        description = "path to wallpaper";
+        default = builtins.path {
+          path = ./wallpaper/wallpaper.png;
+          name = "wallpaper";
+        };
+        type = lib.types.path;
+      };
+      monitor = {
+        name = lib.mkOption {
+          description = "display to use";
+          example = "DP-1";
+          type = lib.types.str;
+        };
 
-			resolution = lib.mkOption {
-				description = "resolution to use for the monitor";
-				example = "2560x1440";
-				type = lib.types.str;
-			};
+        resolution = lib.mkOption {
+          description = "resolution to use for the monitor";
+          example = "2560x1440";
+          type = lib.types.str;
+        };
 
-			refreshRate = lib.mkOption {
-				description = "refresh rate to use for the monitor";
-				example = 165;
-				type = lib.types.numbers.positive;
-			};
-		};
-	};
+        refreshRate = lib.mkOption {
+          description = "refresh rate to use for the monitor";
+          example = 165;
+          type = lib.types.numbers.positive;
+        };
+      };
+    };
   };
 
   config = {
@@ -58,16 +63,16 @@
       };
 
       iconTheme = {
-        name = "WhiteSur";
-        package = pkgs.whitesur-icon-theme;
+        name = "Papirus-Dark";
+        package = pkgs.papirus-icon-theme;
       };
 
       theme = {
-        name = "Catppuccin-Mocha-Standard-Teal-Dark";
+        name = "catppuccin-mocha-teal-standard+default";
         package = pkgs.catppuccin-gtk.override {
-			accents = ["teal"];
-			variant = "mocha";
-		};
+          accents = ["teal"];
+          variant = "mocha";
+        };
       };
     };
 
@@ -78,10 +83,10 @@
     };
 
     home.packages = with pkgs; [
-	  # okay maybe nautilus isn't that good not WHY DOES libadwaita IGNORE THEMES
-	  # nevermind problem resolved itself
-	  gnome.nautilus
-	  #(cinnamon.nemo-with-extensions.override { extensions = with cinnamon; [ nemo-fileroller ]; })
+      # okay maybe nautilus isn't that good not WHY DOES libadwaita IGNORE THEMES
+      # nevermind problem resolved itself
+      gnome.nautilus
+      #(cinnamon.nemo-with-extensions.override { extensions = with cinnamon; [ nemo-fileroller ]; })
     ];
 
     xdg = {
@@ -99,13 +104,13 @@
       size = 24;
     };
 
-	services.udiskie = {
-		enable = true;
-		automount = true;
-		notify = false;
-		tray = "never";
-	};
+    services.udiskie = {
+      enable = true;
+      automount = true;
+      notify = false;
+      tray = "never";
+    };
 
-	  fonts.fontconfig.enable = true;
+    fonts.fontconfig.enable = true;
   };
 }

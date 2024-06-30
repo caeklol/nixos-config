@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  enable = config.desktop.enable && config.desktop.env == "gnome" ;
+  enable = config.desktop.enable && config.desktop.env == "gnome";
 in {
   config = lib.mkIf enable {
     home.packages = with pkgs; [

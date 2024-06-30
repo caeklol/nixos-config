@@ -11,7 +11,6 @@ in {
   };
 
   config = lib.mkIf cfg.terminals.kitty.enable {
-
     home.sessionVariables.TERMINAL = "kitty";
 
     programs.kitty = {

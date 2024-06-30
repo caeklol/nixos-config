@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  enable = config.desktop.enable && config.desktop.env == "hyprland" ;
+  enable = config.desktop.enable && config.desktop.env == "hyprland";
 
   hyprpaper-config = pkgs.writeTextFile {
     name = "hyprpaper-config";
@@ -95,69 +95,69 @@ in {
               10)
           );
 
-		monitor = [
-			"${config.desktop.monitor.name},${config.desktop.monitor.resolution}@${builtins.toString config.desktop.monitor.refreshRate},0x0,1"
-			"Unknown-1,disable"
-		];
+        monitor = [
+          "${config.desktop.monitor.name},${config.desktop.monitor.resolution}@${builtins.toString config.desktop.monitor.refreshRate},0x0,1"
+          "Unknown-1,disable"
+        ];
 
-		env = [
-			"XCURSOR_SIZE,24"
-			"QT_QPA_PLATFORMTHEME,at5ct"
-		];
+        env = [
+          "XCURSOR_SIZE,24"
+          "QT_QPA_PLATFORMTHEME,at5ct"
+        ];
 
-		input = {
-			kb_layout = "us";
-			follow_mouse = 1;
+        input = {
+          kb_layout = "us";
+          follow_mouse = 1;
 
-			touchpad = {
-				natural_scroll = false;
-			};
-		};
+          touchpad = {
+            natural_scroll = false;
+          };
+        };
 
-		general = {
-			gaps_in = 0;
-			gaps_out = 0;
-			border_size = 0;
-			layout = "dwindle";
-			allow_tearing = false;
-		};
+        general = {
+          gaps_in = 0;
+          gaps_out = 0;
+          border_size = 0;
+          layout = "dwindle";
+          allow_tearing = false;
+        };
 
-		decoration = {
-			blur = {
-				enabled = true;
-				size = 3;
-				passes = 3;
-				new_optimizations = true;
-				vibrancy = 0.1696;
-				xray = false;
-			};
-		};
+        decoration = {
+          blur = {
+            enabled = true;
+            size = 3;
+            passes = 3;
+            new_optimizations = true;
+            vibrancy = 0.1696;
+            xray = false;
+          };
+        };
 
-		animations = {
-			enabled = false;
-		};
+        animations = {
+          enabled = false;
+        };
 
-		dwindle = {
-			pseudotile = true;
-			preserve_split = true;
-		};
+        dwindle = {
+          pseudotile = true;
+          preserve_split = true;
+        };
 
-		master = {
-			new_is_master = true;
-		};
+        master = {
+          new_is_master = true;
+        };
 
-		gestures = {
-			workspace_swipe = false;
-		};
+        gestures = {
+          workspace_swipe = false;
+        };
 
-		misc = {
-			force_default_wallpaper = 0;
-		};
+        misc = {
+          force_default_wallpaper = 0;
+        };
 
-		windowrulev2 = [
-			"float, initialclass:org.gnome.Nautilus"
-			"size 45% 50%, initialclass:org.gnome.Nautilus"
-		];
+        windowrulev2 = [
+          "float, initialclass:org.gnome.Nautilus"
+          "size 45% 50%, initialclass:org.gnome.Nautilus"
+        ];
       };
     };
   };
