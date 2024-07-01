@@ -12,12 +12,12 @@ window#waybar {
 	background: @base;
 }
 
-#workspaces button.active {
-	background: @surface2;
+#workspaces button.current_output {
+	background: @base;
 }
 
 #workspaces button.focused {
-	background: @base;
+	background: @surface2;
 }
 
 #clock {

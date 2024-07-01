@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  enabled = config.desktop.env == "hyprland";
+  enabled = config.desktop.env == "sway";
 in
   lib.mkIf enabled {
     environment.systemPackages = with pkgs; [
@@ -14,12 +14,11 @@ in
     environment.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
       NIXOS_OZONE_WL = "1";
+	  WLR_RENDERER = "vulkan";
     };
 
-    programs.hyprland.enable = true;
-
     xdg.portal.enable = true;
-    xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-hyprland];
+    xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-wlr];
 
     systemd.services.greetd.serviceConfig = {
       Type = "idle";
@@ -35,13 +34,13 @@ in
       enable = true;
       settings = {
         default_session = {
-          command = "tuigreet --time --cmd 'Hyprland'";
+          command = "tuigreet --time --cmd 'sway --unsupported-gpu'";
           user = "greeter";
         };
       };
     };
 
     environment.etc."greetd/environments".text = ''
-      Hyprland
+      sway
     '';
   }

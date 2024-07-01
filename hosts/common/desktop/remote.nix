@@ -8,10 +8,10 @@
   envMap = {
     "i3" = "i3";
     "gnome" = "gnome-session";
-    "hyprland" = "Hyprland";
+    "sway" = "sway";
   };
   env = builtins.getAttr config.desktop.env envMap;
-  wayland = config.desktop.env == "hyprland";
+  wayland = config.desktop.env == "sway";
   xorg = !wayland;
 in {
   config = {

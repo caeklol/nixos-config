@@ -8,13 +8,12 @@
   imports = [
     ../../home-manager
     ../../home-manager/desktop
-    ../../home-manager/desktop/hyprland # TODO: Make into option (config = desktop.enable, desktop.env)
   ];
 
   config = {
     desktop = {
       enable = true;
-      env = "hyprland";
+      env = "sway";
       wallpaper = builtins.path {
         path = ../../home-manager/desktop/wallpaper/leaves.png;
         name = "wallpaper";
@@ -87,12 +86,5 @@
       mpv
       pavucontrol
     ];
-
-    wayland.windowManager.hyprland.settings = {
-      input = {
-        sensitivity = 0.51;
-        accel_profile = "flat";
-      };
-    };
   };
 }

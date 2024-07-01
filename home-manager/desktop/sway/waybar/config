@@ -3,7 +3,7 @@
 	"position": "top",
 	"fixed-center": true,
 	"modules-center": ["clock"],
-	"modules-left": ["hyprland/workspaces"],
+	"modules-left": ["sway/workspaces"],
 	"modules-right": ["pulseaudio"],
 	"hyprland/workspaces": {
       	"format": "{name}",

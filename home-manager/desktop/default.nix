@@ -6,7 +6,7 @@
 }: {
   imports = [
     ./polkit.nix
-    ./hyprland
+    ./sway
     ./i3
     ./gnome
   ];
@@ -16,7 +16,7 @@
       enable = lib.mkEnableOption "desktop";
       env = lib.mkOption {
         description = "desktop environment"; # As in, the actual
-        type = lib.types.enum ["hyprland" "i3" "gnome"];
+        type = lib.types.enum ["sway" "i3" "gnome"];
       };
       wallpaper = lib.mkOption {
         description = "path to wallpaper";
@@ -111,6 +111,13 @@
       tray = "never";
     };
 
-    fonts.fontconfig.enable = true;
+    fonts.fontconfig = {
+		enable = true;
+		defaultFonts = {
+			serif = ["New York"];
+			sansSerif = ["SF Pro Display" "SF Pro"];
+			monospace = ["JetBrains Mono Nerd Font"];
+		};
+	};
   };
 }
