@@ -22,7 +22,7 @@
 
   config = {
     hardware = {
-      opengl = {
+      graphics = {
         enable = true;
       };
     };

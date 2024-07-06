@@ -8,8 +8,16 @@
 	min-height: 32px;
 }
 
+.modules-right * {
+	padding-right: 15px;
+}
+
 window#waybar {
 	background: @base;
+}
+
+#workspaces button {
+	padding: 9px;
 }
 
 #workspaces button.active {
@@ -18,9 +26,4 @@ window#waybar {
 
 #workspaces button.focused {
 	background: @base;
-}
-
-#clock {
-	color: @yellow;
-	padding-right: 0.5px;
 }

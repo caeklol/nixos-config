@@ -2,9 +2,9 @@
 	"layer": "top",
 	"position": "top",
 	"fixed-center": true,
-	"modules-center": ["clock"],
 	"modules-left": ["hyprland/workspaces"],
-	"modules-right": ["pulseaudio"],
+	"modules-right": ["custom/xmrig", "clock", "pulseaudio"],
+
 	"hyprland/workspaces": {
       	"format": "{name}",
       		"format-icons": {
@@ -13,18 +13,31 @@
         	  "urgent": " "
       		},
 	},
-	
 
+	"custom/xmrig": {
+		"exec": "~/.config/waybar/xmrig.sh",
+		"format": "{icon} {}",
+		"format-icons": {
+			"enabled": "<span color=\"#fab387\">󰢷</span>",
+			"disabled": "<span color=\"#6c7086\">󰢷</span>",
+		},
+		"return-type": "json",
+		"on-click": "if systemctl is-active xmrig; then systemctl stop xmrig; else systemctl start xmrig; fi",
+		"restart-interval": 1,
+	},
 
 	"clock": {
-		"interval": 1,
-		"format": "{:%I:%M:%S %p}",
+		"interval": 30,
+		"format": "<span color=\"#89b4fa\">󱑍 </span>{:%I:%M %p}",
 		"tooltip": false
 	},
 
 	"pulseaudio": {
-		"format": "{icon} {volume}% ",
-		"format-icons": ["", "", "󰕾", ""],
+		"format": "<span color=\"#89b4fa\">{icon}</span> {volume}%",
+		"format-muted": "<span color=\"#585b70\"> </span> 0% ",
+		"format-icons": ["󰕿", "󰖀", "󰕾"],
+		"on-click": "pamixer --toggle-mute",
+		"on-click-right": "pavucontrol",
 		"tooltip": true
-	}
+	},
 }

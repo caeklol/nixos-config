@@ -26,8 +26,13 @@ in {
         enableZshIntegration = cfg.shells.zsh.enable;
       };
 
+	  theme = "Catppuccin-Mocha";
+
       extraConfig = ''
         map ctrl+shift+t new_tab_with_cwd
+		window_padding_width 4
+		background_blur 1
+		background_opacity 0.75
       '';
     };
   };

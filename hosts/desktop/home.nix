@@ -8,7 +8,6 @@
   imports = [
     ../../home-manager
     ../../home-manager/desktop
-    ../../home-manager/desktop/hyprland # TODO: Make into option (config = desktop.enable, desktop.env)
   ];
 
   config = {
@@ -84,8 +83,6 @@
       gimp
       gparted
       bruno
-      mpv
-      pavucontrol
     ];
 
     wayland.windowManager.hyprland.settings = {

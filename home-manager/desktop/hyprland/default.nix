@@ -36,6 +36,7 @@ in {
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland.enable = true;
+	  	
       settings = {
         "$mod" = modifier;
         "$mod2" = modifier2;
@@ -71,7 +72,6 @@ in {
             "$mod, E, exec, $fileManager"
             "$mod, F, togglefloating,"
             "$mod, D, exec, $menu"
-            "$mod, P, pseudo,"
             "$mod, J, togglesplit,"
             "$mod, left, movefocus, l"
             "$mod, right, movefocus, r"
@@ -105,19 +105,34 @@ in {
           "QT_QPA_PLATFORMTHEME,at5ct"
         ];
 
-        input = {
-          kb_layout = "us";
-          follow_mouse = 1;
+		input = {
+			follow_mouse = 2;
+		};
 
-          touchpad = {
-            natural_scroll = false;
-          };
+        dwindle = {
+          pseudotile = true;
+          preserve_split = true;
         };
+
+        misc = {
+          force_default_wallpaper = 0;
+        };
+
+        animations = {
+          enabled = false;
+        };
+
+        windowrulev2 = [
+          "float, initialclass:org.gnome.Nautilus"
+          "size 45% 50%, initialclass:org.gnome.Nautilus"
+        ];
 
         general = {
           gaps_in = 0;
           gaps_out = 0;
-          border_size = 0;
+          border_size = 2;
+		  "col.active_border" = "rgba(89b4faff)";
+		  "col.inactive_border" = "rgba(181825ff)";
           layout = "dwindle";
           allow_tearing = false;
         };
@@ -132,32 +147,6 @@ in {
             xray = false;
           };
         };
-
-        animations = {
-          enabled = false;
-        };
-
-        dwindle = {
-          pseudotile = true;
-          preserve_split = true;
-        };
-
-        master = {
-          new_is_master = true;
-        };
-
-        gestures = {
-          workspace_swipe = false;
-        };
-
-        misc = {
-          force_default_wallpaper = 0;
-        };
-
-        windowrulev2 = [
-          "float, initialclass:org.gnome.Nautilus"
-          "size 45% 50%, initialclass:org.gnome.Nautilus"
-        ];
       };
     };
   };
