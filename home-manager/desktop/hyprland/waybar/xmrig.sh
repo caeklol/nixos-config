@@ -1,4 +1,4 @@
-DISABLED="Not mining"
+DISABLED="..."
 UPTIME=$(systemctl status xmrig | grep -Po ".*; \K(.*)(?= ago)")
 
 if systemctl is-active --quiet xmrig

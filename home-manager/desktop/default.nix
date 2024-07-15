@@ -91,6 +91,7 @@
       mpv
       pavucontrol
 	  pamixer
+	  apple-fonts
     ];
 
     xdg = {
@@ -115,6 +116,13 @@
       tray = "never";
     };
 
-    fonts.fontconfig.enable = true;
+    fonts.fontconfig = {
+		enable = true;
+		defaultFonts = {
+			serif = ["New York"];
+			sansSerif = ["SF Pro Display"];
+			monospace = ["JetBrains Mono Nerd Font"];
+		};
+	};
   };
 }
