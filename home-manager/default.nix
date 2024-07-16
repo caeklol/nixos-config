@@ -20,7 +20,7 @@
   imports = [
     ./virtualization
 
-    ./browsers/firefox.nix
+    ./browsers/ungoogled.nix
 
     ./editors/neovim
     ./editors/vscode.nix

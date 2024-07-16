@@ -13,8 +13,16 @@ in {
       gnomeExtensions.zen
       gnomeExtensions.user-themes
       gnomeExtensions.just-perfection
-      gnomeExtensions.blur-my-shell
+	  gnomeExtensions.dash-to-dock
     ];
+
+	home.file.display = {
+		executable = true;
+		target = ".config/autostart/display_config.desktop";
+		text = ''
+			xrandr --output ${config.desktop.monitor.name} --mode ${config.desktop.monitor.resolution} --rate ${builtins.toString config.desktop.monitor.refreshRate}
+		'';
+	};
 
     dconf.settings = {
       "org/gnome/shell" = {
@@ -23,20 +31,19 @@ in {
           zen.extensionUuid
           user-themes.extensionUuid
           just-perfection.extensionUuid
-          blur-my-shell.extensionUuid
+		  dash-to-dock.extensionUuid
         ];
       };
       "org/gnome/desktop/session" = {
         idle-delay = lib.hm.gvariant.mkUint32 0;
       };
-
+	  "org/gnome/shell/extensions/dash-to-dock" = {
+  		height-fraction = 1.0;
+		dash-max-icon-size = 64;
+		running-indicator-style = "DOTS";
+	  };
       "org/gnome/settings-daemon/plugins/power" = {
         sleep-inactive-ac-type = "nothing";
-      };
-
-      "org/gnome/Console" = {
-        font-scale = 1.4000000000000004;
-        last-window-size = lib.hm.gvariant.mkTuple [1404 965];
       };
 
       "org/gnome/desktop/wm/preferences" = {
@@ -57,13 +64,14 @@ in {
         enable-animations = true;
         font-antialiasing = "grayscale";
         font-hinting = "slight";
-        gtk-theme = "Catppuccin-Mocha-Standard-Teal-Dark";
-        icon-theme = "Papirus-Dark";
+		gtk-theme = "catppuccin-mocha-teal-standard+default";
+        color-scheme = "prefer-dark";
+        gtk-enable-primary-paste = false;
       };
 
       "org/gnome/desktop/peripherals/mouse" = {
         accel-profile = "flat";
-        speed = -0.338521;
+        speed = 0.17322834645669283;
       };
 
       "org/gnome/desktop/privacy" = {
@@ -73,10 +81,6 @@ in {
 
       "org/gnome/nautilus/icon-view" = {
         default-zoom-level = "small-plus";
-      };
-
-      "org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
       };
 
       "org/gnome/nautilus/preferences" = {
@@ -92,7 +96,7 @@ in {
 
       "org/gnome/shell/extensions/just-perfection" = {
         accessibility-menu = false;
-        activities-button = true;
+        activities-button = false;
         animation = 5;
         background-menu = true;
         calendar = true;
@@ -112,7 +116,7 @@ in {
         panel-in-overview = false;
         panel-indicator-padding-size = 5;
         panel-notification-icon = true;
-        panel-size = 32;
+        panel-size = 40;
         power-icon = true;
         quick-settings = true;
         ripple-box = false;
@@ -134,7 +138,7 @@ in {
       };
 
       "org/gnome/shell/extensions/user-theme" = {
-        name = "Catppuccin-Mocha-Standard-Teal-Dark";
+        name = "catppuccin-mocha-teal-standard+default";
       };
 
       "org/gnome/shell/world-clocks" = {

@@ -13,7 +13,7 @@
   config = {
     desktop = {
       enable = true;
-      env = "hyprland";
+      env = "gnome";
       wallpaper = builtins.path {
         path = ../../home-manager/desktop/wallpaper/leaves.png;
         name = "wallpaper";
@@ -36,7 +36,7 @@
       };
       programs.arduino.enable = true;
 
-      browsers.firefox.enable = true;
+      browsers.ungoogled.enable = true;
       editors.neovim.enable = true;
       shells.bash.enable = true;
       terminals.kitty.enable = true;
@@ -72,12 +72,11 @@
       tor-browser
       obs-studio
       blender
-      google-chrome
       telegram-desktop
       tor-browser
       mullvad-browser
 
-      spotify
+      spotify 
       ngrok
       steam
       gimp
