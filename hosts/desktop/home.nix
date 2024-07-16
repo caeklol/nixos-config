@@ -36,7 +36,7 @@
       };
       programs.arduino.enable = true;
 
-      browsers.ungoogled.enable = true;
+      browsers.firefox.enable = true;
       editors.neovim.enable = true;
       shells.bash.enable = true;
       terminals.kitty.enable = true;
