@@ -21,6 +21,7 @@
     ./virtualization
 
     ./browsers/ungoogled.nix
+    ./browsers/firefox.nix
 
     ./editors/neovim
     ./editors/vscode.nix
