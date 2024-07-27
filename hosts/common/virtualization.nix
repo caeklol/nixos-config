@@ -3,6 +3,10 @@
   lib,
   ...
 }: {
+  environment.systemPackages = with pkgs; [
+	virtiofsd
+  ];
+
   virtualisation = {
     libvirtd = {
       enable = true;
