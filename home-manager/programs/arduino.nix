@@ -13,9 +13,6 @@ in {
   config = lib.mkIf cfg.programs.arduino.enable {
     home.packages = with pkgs; [
       arduino-ide
-      (python3.withPackages (python-pkgs: [
-        python-pkgs.pyserial
-      ]))
     ];
   };
 }

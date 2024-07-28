@@ -55,8 +55,6 @@
       vesktop
       cinny-desktop
 
-      cura
-
       btop
       git
       neofetch
