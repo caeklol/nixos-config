@@ -25,10 +25,6 @@
       graphics = {
         enable = true;
       };
-
-	  opengl = {
-		enable = true;
-	  };
     };
 
     programs.dconf.enable = true;
