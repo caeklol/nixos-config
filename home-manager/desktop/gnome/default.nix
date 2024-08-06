@@ -90,7 +90,7 @@ in {
       };
 
       "org/gnome/shell" = {
-        favorite-apps = ["discord.desktop" "firefox.desktop" "kitty.desktop" "spotify.desktop" "org.gnome.Nautilus.desktop"];
+        favorite-apps = ["vesktop.desktop" "firefox.desktop" "kitty.desktop" "spotify.desktop" "org.gnome.Nautilus.desktop"];
         # should hopefully work regardless if the apps are installed or not
       };
 

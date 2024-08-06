@@ -35,6 +35,7 @@
         syncthing = true;
       };
       programs.arduino.enable = true;
+      programs.steam.enable = true;
 
       browsers.firefox.enable = true;
       editors.neovim.enable = true;
@@ -46,12 +47,11 @@
 
     home.username = "caek";
     home.homeDirectory = "/home/caek";
-    home.stateVersion = "23.11";
+    home.stateVersion = "24.05";
+	home.shellAliases.home-manager = "home-manager -b backup";
 
     home.packages = with pkgs; [
-      (discord.override {
-        withVencord = true;
-      })
+	  discord
       vesktop
       cinny-desktop
 
@@ -67,7 +67,7 @@
       gnupg
       gpg-tui
 
-      # jetbrains.idea-community
+      jetbrains.idea-community
       teams-for-linux
       tor-browser
       obs-studio
@@ -78,7 +78,6 @@
 
       spotify 
       ngrok
-      steam
       gimp
       gparted
       bruno

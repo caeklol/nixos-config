@@ -19,14 +19,6 @@
   modifier2 = "SHIFT";
 in {
   config = lib.mkIf enable {
-    home.packages = with pkgs; [
-      hyprpaper
-      wl-clipboard
-      grim
-      slurp
-      fuzzel
-    ];
-
     home.file.".config/waybar".source = ./waybar;
 
     programs.waybar = {

@@ -6,7 +6,7 @@
   users.users.caek = {
     isNormalUser = true;
     description = "caek";
-    extraGroups = ["networkmanager" "wheel" "libvirtd" "dialout"];
+    extraGroups = ["networkmanager" "wheel" "libvirtd" "dialout" "jackaudio"];
     packages = with pkgs; [
       home-manager
       vim

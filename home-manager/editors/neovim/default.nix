@@ -11,13 +11,17 @@ in {
   };
 
   config = lib.mkIf neovim.enable {
+    home.packages = with pkgs; [
+		vscode-langservers-extracted
+    ];
+
     programs.neovim = {
       enable = true;
       extraLuaConfig = ''
            vim.opt.tabstop = 4
            vim.opt.shiftwidth = 4
            vim.opt.expandtab = false
-        vim.g.mapleader = "\\"
+           vim.g.mapleader = "\\"
       '';
 
       extraConfig = ''
@@ -30,14 +34,6 @@ in {
 
       plugins = with pkgs.vimPlugins; [
         vim-suda
-        {
-          plugin = coc-nvim;
-          config = ''
-            let g:coc_node_path = '${lib.getExe pkgs.nodejs_22}'
-          '';
-        }
-        coc-eslint
-        coc-rust-analyzer
         {
           plugin = presence-nvim;
           type = "lua";
@@ -79,6 +75,24 @@ in {
           type = "lua";
           config = ''
             vim.cmd.colorscheme "catppuccin"
+          '';
+        }
+
+		{
+          plugin = nvim-lspconfig;
+          type = "lua";
+          config = ''
+		  	local lspconfig = require("lspconfig");
+			lspconfig.eslint.setup({
+				on_attach = function(client, bufnr)
+				vim.api.nvim_create_autocmd("BufWritePre", {
+				  buffer = bufnr,
+				  command = "EslintFixAll",
+				})
+			  end,
+			})
+
+			lspconfig.rust_analyzer.setup({})
           '';
         }
       ];

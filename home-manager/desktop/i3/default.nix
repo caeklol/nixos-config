@@ -11,12 +11,7 @@ in {
   config = lib.mkIf enable {
     home.packages = with pkgs; [
       polybar-pulseaudio-control
-      pavucontrol
-      noto-fonts
       feh # background
-      apple-fonts
-      maim
-      xclip
       rofi
     ];
 

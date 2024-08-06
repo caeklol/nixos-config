@@ -3,7 +3,11 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+let
+	wayland = config.desktop.env == "hyprland";
+in
+{
   imports = [
     ./polkit.nix
     ./hyprland
@@ -92,7 +96,17 @@
       pavucontrol
 	  pamixer
 	  apple-fonts
-    ];
+    ] ++ (if wayland then [
+		hyprpaper
+      	wl-clipboard
+      	grim
+      	slurp
+      	fuzzel
+	] else [
+		xclip
+		noto-fonts
+		maim
+	]);
 
     xdg = {
       mime.enable = true;

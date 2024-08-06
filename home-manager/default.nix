@@ -29,6 +29,7 @@
     ./programs/prismlauncher.nix
     ./programs/obsidian.nix
     ./programs/arduino.nix
+    ./programs/steam.nix
     ./programs/fzf.nix
     ./programs/tmux.nix
     ./programs/omp
@@ -58,5 +59,7 @@
     entries = [];
   };
 
-  programs.home-manager.enable = true;
+  programs.home-manager = {
+  	enable = true;
+  };
 }

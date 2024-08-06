@@ -26,16 +26,6 @@ in {
             ublock-origin
             darkreader
           ];
-
-		  search = {
-			engines = {
-				"SearXNG" = {
-					urls = [{ template = "https://priv.au/search?q={searchTerms}"; }];
-				};
-		  	};
-
-			default = "SearXNG";
-		  };
         };
       };
     };

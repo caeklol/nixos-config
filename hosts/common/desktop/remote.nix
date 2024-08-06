@@ -18,6 +18,7 @@ in {
     services.xrdp = lib.mkIf xorg {
       enable = true;
       defaultWindowManager = env;
+	  openFirewall = true;
     };
 
     environment.systemPackages = lib.mkIf wayland [
