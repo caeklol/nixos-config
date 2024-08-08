@@ -96,6 +96,7 @@ in
       pavucontrol
 	  pamixer
 	  apple-fonts
+	  loupe
     ] ++ (if wayland then [
 		hyprpaper
       	wl-clipboard
@@ -110,9 +111,9 @@ in
 
     xdg = {
       mime.enable = true;
-      mimeApps.associations.added = {
-        "inode/directory" = "nemo.desktop";
-        "image/*" = "mpv.desktop";
+      mimeApps.defaultApplications = {
+        "inode/directory" = "nautilus.desktop";
+        "image/*" = "loupe.desktop";
       };
     };
 
