@@ -10,10 +10,12 @@ in {
     enable = lib.mkEnableOption "enable neovim";
   };
 
+  imports = [
+		./lsps.nix
+		./syntaxes.nix
+  ];
+
   config = lib.mkIf neovim.enable {
-    home.packages = with pkgs; [
-		vscode-langservers-extracted
-    ];
 
     programs.neovim = {
       enable = true;
@@ -22,14 +24,7 @@ in {
            vim.opt.shiftwidth = 4
            vim.opt.expandtab = false
            vim.g.mapleader = "\\"
-      '';
-
-      extraConfig = ''
-        nnoremap Q "_
-        command Sw normal :SudaWrite
-
-        au BufEnter * set noro
-        set relativenumber
+		   vim.opt.relativenumber = true
       '';
 
       plugins = with pkgs.vimPlugins; [
@@ -75,24 +70,6 @@ in {
           type = "lua";
           config = ''
             vim.cmd.colorscheme "catppuccin"
-          '';
-        }
-
-		{
-          plugin = nvim-lspconfig;
-          type = "lua";
-          config = ''
-		  	local lspconfig = require("lspconfig");
-			lspconfig.eslint.setup({
-				on_attach = function(client, bufnr)
-				vim.api.nvim_create_autocmd("BufWritePre", {
-				  buffer = bufnr,
-				  command = "EslintFixAll",
-				})
-			  end,
-			})
-
-			lspconfig.rust_analyzer.setup({})
           '';
         }
       ];
