@@ -7,7 +7,7 @@
     enable = false;
   };
 
-  sound.enable = true;
+  sound.enable = false;
   security.rtkit.enable = true;
 
   services = {
