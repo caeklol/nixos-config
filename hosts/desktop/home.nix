@@ -13,7 +13,7 @@
   config = {
     desktop = {
       enable = true;
-      env = "gnome";
+      env = "hyprland";
       wallpaper = builtins.path {
         path = ../../home-manager/desktop/wallpaper/leaves.png;
         name = "wallpaper";

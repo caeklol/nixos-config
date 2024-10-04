@@ -19,7 +19,7 @@
   config = {
     desktop = {
       remote = true;
-      env = "gnome";
+      env = "hyprland";
     };
 
     networking = {
