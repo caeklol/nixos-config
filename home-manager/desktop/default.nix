@@ -3,11 +3,9 @@
   pkgs,
   lib,
   ...
-}:
-let
-	wayland = config.desktop.env == "hyprland";
-in
-{
+}: let
+  wayland = config.desktop.env == "hyprland";
+in {
   imports = [
     ./polkit.nix
     ./hyprland
@@ -86,28 +84,34 @@ in
       style.name = "gtk2";
     };
 
-    home.packages = with pkgs; [
-      # okay maybe nautilus isn't that good not WHY DOES libadwaita IGNORE THEMES
-      # nevermind problem resolved itself
-      #(cinnamon.nemo-with-extensions.override { extensions = with cinnamon; [ nemo-fileroller ]; })
-      gnome.nautilus
-	  celluloid
-      mpv
-      pavucontrol
-	  pamixer
-	  apple-fonts
-	  loupe
-    ] ++ (if wayland then [
-		hyprpaper
-      	wl-clipboard
-      	grim
-      	slurp
-      	fuzzel
-	] else [
-		xclip
-		noto-fonts
-		maim
-	]);
+    home.packages = with pkgs;
+      [
+        # okay maybe nautilus isn't that good not WHY DOES libadwaita IGNORE THEMES
+        # nevermind problem resolved itself
+        #(cinnamon.nemo-with-extensions.override { extensions = with cinnamon; [ nemo-fileroller ]; })
+        gnome.nautilus
+        celluloid
+        mpv
+        pavucontrol
+        pamixer
+        apple-fonts
+        loupe
+      ]
+      ++ (
+        if wayland
+        then [
+          hyprpaper
+          wl-clipboard
+          grim
+          slurp
+          fuzzel
+        ]
+        else [
+          xclip
+          noto-fonts
+          maim
+        ]
+      );
 
     xdg = {
       mime.enable = true;
@@ -132,12 +136,12 @@ in
     };
 
     fonts.fontconfig = {
-		enable = true;
-		defaultFonts = {
-			serif = ["New York"];
-			sansSerif = ["SF Pro Display"];
-			monospace = ["JetBrains Mono Nerd Font"];
-		};
-	};
+      enable = true;
+      defaultFonts = {
+        serif = ["New York"];
+        sansSerif = ["SF Pro Display"];
+        monospace = ["JetBrains Mono Nerd Font"];
+      };
+    };
   };
 }

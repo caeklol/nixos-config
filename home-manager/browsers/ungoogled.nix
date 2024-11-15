@@ -16,9 +16,9 @@ in {
   };
 
   config = lib.mkIf ungoogled.enable {
-  	programs.chromium = {
-		enable = true;
-		package = pkgs.ungoogled-chromium;
-	};
+    programs.chromium = {
+      enable = true;
+      package = pkgs.ungoogled-chromium;
+    };
   };
 }

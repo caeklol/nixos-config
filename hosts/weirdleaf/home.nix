@@ -12,7 +12,7 @@
   config = {
     modules = {
       programs.tmux.enable = true;
-     shells.bash.enable = true;
+      shells.bash.enable = true;
     };
 
     home.username = "caek";

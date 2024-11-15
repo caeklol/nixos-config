@@ -28,7 +28,7 @@ in {
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland.enable = true;
-	  	
+
       settings = {
         "$mod" = modifier;
         "$mod2" = modifier2;
@@ -97,9 +97,9 @@ in {
           "QT_QPA_PLATFORMTHEME,at5ct"
         ];
 
-		input = {
-			follow_mouse = 2;
-		};
+        input = {
+          follow_mouse = 2;
+        };
 
         dwindle = {
           pseudotile = true;
@@ -123,8 +123,8 @@ in {
           gaps_in = 0;
           gaps_out = 0;
           border_size = 2;
-		  "col.active_border" = "rgba(89b4faff)";
-		  "col.inactive_border" = "rgba(181825ff)";
+          "col.active_border" = "rgba(89b4faff)";
+          "col.inactive_border" = "rgba(181825ff)";
           layout = "dwindle";
           allow_tearing = false;
         };

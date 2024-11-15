@@ -11,8 +11,8 @@ in {
   };
 
   config = lib.mkIf cfg.programs.steam.enable {
-	home.packages = with pkgs; [
-		steam
-	];
+    home.packages = with pkgs; [
+      steam
+    ];
   };
 }

@@ -11,20 +11,19 @@ in {
   };
 
   imports = [
-		./lsps.nix
-		./syntaxes.nix
+    ./lsps.nix
+    ./syntaxes.nix
   ];
 
   config = lib.mkIf neovim.enable {
-
     programs.neovim = {
       enable = true;
       extraLuaConfig = ''
-           vim.opt.tabstop = 4
-           vim.opt.shiftwidth = 4
-           vim.opt.expandtab = false
-           vim.g.mapleader = "\\"
-		   vim.opt.relativenumber = true
+              vim.opt.tabstop = 4
+              vim.opt.shiftwidth = 4
+              vim.opt.expandtab = false
+              vim.g.mapleader = "\\"
+        vim.opt.relativenumber = true
       '';
 
       plugins = with pkgs.vimPlugins; [

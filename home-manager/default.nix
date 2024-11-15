@@ -60,6 +60,6 @@
   };
 
   programs.home-manager = {
-  	enable = true;
+    enable = true;
   };
 }

@@ -26,11 +26,11 @@ in {
         enableZshIntegration = cfg.shells.zsh.enable;
       };
 
-	  theme = "Catppuccin-Mocha";
+      theme = "Catppuccin-Mocha";
 
       extraConfig = ''
-        map ctrl+shift+t new_tab_with_cwd
-		window_padding_width 4
+              map ctrl+shift+t new_tab_with_cwd
+        window_padding_width 4
       '';
     };
   };

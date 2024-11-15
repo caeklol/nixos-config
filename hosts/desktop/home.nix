@@ -48,10 +48,10 @@
     home.username = "caek";
     home.homeDirectory = "/home/caek";
     home.stateVersion = "24.05";
-	home.shellAliases.home-manager = "home-manager -b backup";
+    home.shellAliases.home-manager = "home-manager -b backup";
 
     home.packages = with pkgs; [
-	  discord
+      discord
       vesktop
       cinny-desktop
 
@@ -76,7 +76,7 @@
       tor-browser
       mullvad-browser
 
-      spotify 
+      spotify
       ngrok
       gimp
       gparted

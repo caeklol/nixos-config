@@ -13,16 +13,16 @@ in {
       gnomeExtensions.zen
       gnomeExtensions.user-themes
       gnomeExtensions.just-perfection
-	  gnomeExtensions.dash-to-dock
+      gnomeExtensions.dash-to-dock
     ];
 
-	home.file.display = {
-		executable = true;
-		target = ".config/autostart/display_config.desktop";
-		text = ''
-			xrandr --output ${config.desktop.monitor.name} --mode ${config.desktop.monitor.resolution} --rate ${builtins.toString config.desktop.monitor.refreshRate}
-		'';
-	};
+    home.file.display = {
+      executable = true;
+      target = ".config/autostart/display_config.desktop";
+      text = ''
+        xrandr --output ${config.desktop.monitor.name} --mode ${config.desktop.monitor.resolution} --rate ${builtins.toString config.desktop.monitor.refreshRate}
+      '';
+    };
 
     dconf.settings = {
       "org/gnome/shell" = {
@@ -31,17 +31,17 @@ in {
           zen.extensionUuid
           user-themes.extensionUuid
           just-perfection.extensionUuid
-		  dash-to-dock.extensionUuid
+          dash-to-dock.extensionUuid
         ];
       };
       "org/gnome/desktop/session" = {
         idle-delay = lib.hm.gvariant.mkUint32 0;
       };
-	  "org/gnome/shell/extensions/dash-to-dock" = {
-  		height-fraction = 1.0;
-		dash-max-icon-size = 64;
-		running-indicator-style = "DOTS";
-	  };
+      "org/gnome/shell/extensions/dash-to-dock" = {
+        height-fraction = 1.0;
+        dash-max-icon-size = 64;
+        running-indicator-style = "DOTS";
+      };
       "org/gnome/settings-daemon/plugins/power" = {
         sleep-inactive-ac-type = "nothing";
       };
@@ -64,7 +64,7 @@ in {
         enable-animations = true;
         font-antialiasing = "grayscale";
         font-hinting = "slight";
-		gtk-theme = "catppuccin-mocha-teal-standard+default";
+        gtk-theme = "catppuccin-mocha-teal-standard+default";
         color-scheme = "prefer-dark";
         gtk-enable-primary-paste = false;
       };
