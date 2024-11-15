@@ -6,13 +6,13 @@
   inputs = {
     stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    xmrig-switch.url = "github:caeklol/xmrig-switch";
+    nur.url = "github:nix-community/NUR";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    agenix.url = "github:ryantm/agenix";
 
-    nur.url = "github:nix-community/NUR";
+    xmrig-switch.url = "github:caeklol/xmrig-switch";
   };
 
   outputs = {

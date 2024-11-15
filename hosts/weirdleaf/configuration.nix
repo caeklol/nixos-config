@@ -12,8 +12,6 @@
   ];
 
   config = {
-    boot.loader.efi.canTouchEfiVariables = lib.mkForce false;
-
     powerManagement.enable = false;
     systemd = {
       targets = {
@@ -35,8 +33,10 @@
         };
       };
     };
+
     hardware.asahi.peripheralFirmwareDirectory = ./firmware;
 
+    boot.loader.efi.canTouchEfiVariables = lib.mkForce false;
     boot.loader.grub.gfxmodeEfi = "3456x2160";
   };
 }

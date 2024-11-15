@@ -20,6 +20,8 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.stable-packages
+
+      inputs.agenix.overlays.default
     ];
 
     config = {
@@ -31,6 +33,7 @@
   environment = {
     enableAllTerminfo = true;
     systemPackages = with pkgs; [
+      agenix
       vim
       git
     ];
