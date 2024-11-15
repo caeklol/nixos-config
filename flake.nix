@@ -25,7 +25,7 @@
   } @ inputs: let
     inherit (self) outputs;
     systems = [
-      #"aarch64-linux"
+      "aarch64-linux"
       #"i686-linux"
       "x86_64-linux"
     ];
@@ -56,10 +56,12 @@
 
     nixosConfigurations = {
       desktop = mkNixos [./hosts/desktop/configuration.nix];
+      weirdleaf = mkNixos [./hosts/weirdleaf/configuration.nix];
     };
 
     homeConfigurations = {
       "caek@desktop" = mkHome [./hosts/desktop/home.nix] nixpkgs.legacyPackages.x86_64-linux;
+      "caek@weirdleaf" = mkHome [./hosts/weirdleaf/home.nix] nixpkgs.legacyPackages.aarch64-linux;
     };
   };
 }

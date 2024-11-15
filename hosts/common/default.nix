@@ -35,13 +35,13 @@
     ];
   };
 
-  services.printing.enable = true;
-
   services.avahi = {
     enable = true;
     nssmdns4 = true;
     openFirewall = true; # printing
   };
+
+  
 
   hardware.enableRedistributableFirmware = true;
   security.rtkit.enable = true;
