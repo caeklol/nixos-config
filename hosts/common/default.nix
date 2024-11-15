@@ -2,6 +2,7 @@
   inputs,
   outputs,
   lib,
+  hostname,
   config,
   pkgs,
   ...
@@ -41,7 +42,7 @@
     openFirewall = true; # printing
   };
 
-  
+  networking.hostName = hostname;
 
   hardware.enableRedistributableFirmware = true;
   security.rtkit.enable = true;

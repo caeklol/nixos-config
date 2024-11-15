@@ -12,9 +12,6 @@
   ];
 
   config = {
-    networking = {
-      hostName = "server";
-    };
   boot.loader.efi.canTouchEfiVariables = lib.mkForce false;
 
   powerManagement.enable = false;

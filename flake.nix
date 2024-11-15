@@ -32,10 +32,10 @@
 
     forAllSystems = nixpkgs.lib.genAttrs systems;
 
-    mkNixos = modules:
+    mkNixos = modules: hostname:
       nixpkgs.lib.nixosSystem {
         inherit modules;
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs hostname;};
       };
 
     mkHome = modules: pkgs:
@@ -55,8 +55,8 @@
     overlays = import ./overlays {inherit inputs;};
 
     nixosConfigurations = {
-      desktop = mkNixos [./hosts/desktop/configuration.nix];
-      weirdleaf = mkNixos [./hosts/weirdleaf/configuration.nix];
+      desktop = mkNixos [./hosts/desktop/configuration.nix] "desktop";
+      weirdleaf = mkNixos [./hosts/weirdleaf/configuration.nix] "weirdleaf";
     };
 
     homeConfigurations = {
