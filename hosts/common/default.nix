@@ -37,6 +37,7 @@
       vim
       git
     ];
+    variables.EDITOR = "vim";
   };
 
   services.avahi = {
