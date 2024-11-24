@@ -13,6 +13,8 @@
     ./caek.nix
     ./nix.nix
     ./ssh
+
+    inputs.agenix.nixosModules.default
   ];
 
   nixpkgs = {
@@ -34,6 +36,7 @@
     enableAllTerminfo = true;
     systemPackages = with pkgs; [
       agenix
+      tmux
       vim
       git
     ];
@@ -47,6 +50,8 @@
   };
 
   networking.hostName = hostname;
+
+  age.identityPaths = ["/root/.ssh/id_ed25519"];
 
   hardware.enableRedistributableFirmware = true;
   security.rtkit.enable = true;

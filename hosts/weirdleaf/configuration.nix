@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   pkgs,
   lib,
   ...
@@ -9,6 +10,7 @@
     ./apple-silicon-support
 
     ../common
+    ../common/networking.nix
   ];
 
   config = {
@@ -36,7 +38,14 @@
 
     hardware.asahi.peripheralFirmwareDirectory = ./firmware;
 
+    age.secrets.ratholeCredentials.file = ../../secrets/rathole.toml.age;
+
     boot.loader.efi.canTouchEfiVariables = lib.mkForce false;
     boot.loader.grub.gfxmodeEfi = "3456x2160";
+    services.rathole = {
+      enable = false;
+      role = "client";
+      credentialsFile = config.age.secrets.ratholeCredentials.path;
+    };
   };
 }
