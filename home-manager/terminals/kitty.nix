@@ -16,7 +16,7 @@ in {
     programs.kitty = {
       enable = true;
       font = {
-        package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+        package = pkgs.nerd-fonts.zed-mono;
         name = "JetBrains Mono Nerd Font";
         size = 13;
       };

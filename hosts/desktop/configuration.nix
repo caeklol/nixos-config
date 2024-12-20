@@ -27,5 +27,9 @@
     };
 
     boot.loader.grub.gfxmodeEfi = "2560x1440";
+
+    nixpkgs.config.permittedInsecurePackages = [
+      "cinny-4.2.3"
+    ];
   };
 }

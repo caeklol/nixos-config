@@ -7,7 +7,7 @@
   enabled = config.desktop.env == "gnome";
 in {
   environment.systemPackages = with pkgs; [
-    gnome.gnome-remote-desktop
+    gnome-remote-desktop
   ];
 
   services.xserver = lib.mkIf enabled {

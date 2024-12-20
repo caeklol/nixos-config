@@ -89,7 +89,7 @@ in {
         # okay maybe nautilus isn't that good not WHY DOES libadwaita IGNORE THEMES
         # nevermind problem resolved itself
         #(cinnamon.nemo-with-extensions.override { extensions = with cinnamon; [ nemo-fileroller ]; })
-        gnome.nautilus
+        nautilus
         celluloid
         mpv
         pavucontrol

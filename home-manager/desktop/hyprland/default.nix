@@ -33,7 +33,7 @@ in {
         "$mod" = modifier;
         "$mod2" = modifier2;
         "$terminal" = "kitty";
-        "$fileManager" = "${pkgs.gnome.nautilus}/bin/nautilus";
+        "$fileManager" = "${pkgs.nautilus}/bin/nautilus";
         "$menu" = "fuzzel";
         "$screenshot" = "${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy -t image/png";
 
