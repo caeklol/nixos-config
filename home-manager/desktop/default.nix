@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   pkgs,
   lib,
@@ -60,7 +61,7 @@ in {
       };
       font = {
         name = "SF Pro Display";
-        package = pkgs.apple-fonts;
+        package = inputs.apple-fonts.packages.${pkgs.system}.sf-pro;
         size = 11;
       };
 
@@ -94,7 +95,6 @@ in {
         mpv
         pavucontrol
         pamixer
-        apple-fonts
         loupe
       ]
       ++ (

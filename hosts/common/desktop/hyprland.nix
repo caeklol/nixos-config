@@ -13,14 +13,23 @@ in {
       NIXOS_OZONE_WL = "1";
     };
 
+    programs.uwsm = {
+      enable = true;
+      waylandCompositors.hyprland = {
+        binPath = "/run/current-system/sw/bin/Hyprland";
+        prettyName = "Hyprland";
+      };
+    };
+
     programs.hyprland = {
       enable = true;
       xwayland.enable = true;
+      withUWSM = true;
     };
 
-    environment.systemPackages = with pkgs; [
-      greetd.tuigreet
-    ];
+    #environment.systemPackages = with pkgs; [
+    #  greetd.tuigreet
+    #];
 
     systemd.services.greetd.serviceConfig = {
       Type = "idle";
@@ -32,18 +41,28 @@ in {
       TTYVTDisallocate = true;
     };
 
-    services.greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "tuigreet --time --cmd 'Hyprland'";
-          user = "greeter";
+    services.greetd = let
+      session = {
+        command = "${lib.getExe pkgs.uwsm} start hyprland-uwsm.desktop";
+        user = "caek";
+      }; in {
+        enable = true;
+        settings = {
+          terminal.vt = 1;
+          default_session = session;
+          initial_session = session;
         };
-      };
+      #settings = {
+      #  default_session = {
+      #    command = "tuigreet --time --cmd 'Hyprland'";
+      #    user = "greeter";
+      #  };
+      #};
+
     };
 
-    environment.etc."greetd/environments".text = ''
-      Hyprland
-    '';
+    #environment.etc."greetd/environments".text = ''
+    #  Hyprland
+    #'';
   };
 }

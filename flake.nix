@@ -13,6 +13,7 @@
     agenix.url = "github:ryantm/agenix";
 
     xmrig-switch.url = "github:caeklol/xmrig-switch";
+    apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
   };
 
   outputs = {
