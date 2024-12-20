@@ -53,9 +53,7 @@
     home.packages = with pkgs; [
       discord
       vesktop
-      cinny-desktop
 
-      cura
 
       btop
       git
