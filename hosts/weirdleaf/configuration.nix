@@ -13,7 +13,11 @@
     ../common/networking.nix
   ];
 
+
   config = {
+    environment.systemPackages = with pkgs; [
+      altserver-linux
+    ];
     powerManagement.enable = false;
     systemd = {
       targets = {
@@ -116,5 +120,7 @@
         ];
       };
     };
+
+    services.syncthing.enable = true;
   };
 }
