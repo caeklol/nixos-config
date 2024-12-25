@@ -78,10 +78,8 @@
           upstream_dns = [
             "9.9.9.9"
             "149.112.112.112"
-	    "1.1.1.1"
             # "127.0.0.1:5335"
           ];
-          cache_size = 0;
         };
         filtering = {
           protection_enabled = true;
