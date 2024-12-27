@@ -80,6 +80,7 @@
             "127.0.0.1:5335"
           ];
         };
+	cache_size = 0;
         filtering = {
           protection_enabled = true;
           filtering_enabled = true;
