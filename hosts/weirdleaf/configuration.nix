@@ -12,6 +12,7 @@
     ../common
     ../common/networking.nix
 
+    inputs.metasearch.nixosModules.default
   ];
 
 
@@ -43,7 +44,8 @@
 
     networking.firewall = {
       enable = true;
-      allowedTCPPorts = [3000 53 22289];
+      allowedTCPPorts = [22289];
+      allowedUDPPorts = [53]; # dns is udp..
     };
     hardware.asahi.peripheralFirmwareDirectory = ./firmware;
 
@@ -69,11 +71,8 @@
 
     services.adguardhome = {
       enable = true;
+      openFirewall = true;
       settings = {
-        http = {
-          # You can select any ip and port, just make sure to open firewalls where needed
-          address = "127.0.0.1:3000";
-        };
         dns = {
           upstream_dns = [
             "9.9.9.9"
@@ -89,6 +88,12 @@
           safe_search.enabled = false;
         };
       };
+    };
+
+    services.syncthing.enable = true;
+    services.metasearch = {
+	enable = true;
+	openFirewall = true;
     };
 
     #services.unbound = {
@@ -118,7 +123,5 @@
     #    ];
     #  };
     #};
-
-    services.syncthing.enable = true;
   };
 }

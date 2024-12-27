@@ -13,6 +13,7 @@
     agenix.url = "github:ryantm/agenix";
 
     xmrig-switch.url = "github:caeklol/xmrig-switch";
+    metasearch.url = "github:caeklol/metasearch2";
   };
 
   outputs = {
