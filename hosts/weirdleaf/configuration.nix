@@ -93,6 +93,15 @@
     services.metasearch = {
 	enable = true;
 	openFirewall = true;
+	settings = {
+		ui.show_version_info = true;
+		image_search.enabled = true;
+		urls.replace = {
+			"www.reddit.com" = "old.reddit.com";
+			"medium.com" = "scribe.rip";
+			".medium.com" = "scribe.rip";
+		};
+	};
     };
 
     services.unbound = {
