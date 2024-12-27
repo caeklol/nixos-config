@@ -75,12 +75,10 @@
       settings = {
         dns = {
           upstream_dns = [
-            #"9.9.9.9"
-            #"149.112.112.112"
             "127.0.0.1:5335"
           ];
+	  cache_size = 0;
         };
-	cache_size = 0;
         filtering = {
           protection_enabled = true;
           filtering_enabled = true;
