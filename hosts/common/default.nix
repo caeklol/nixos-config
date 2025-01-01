@@ -55,7 +55,7 @@
 
   hardware.enableRedistributableFirmware = true;
   security.rtkit.enable = true;
-   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.enable = true;
   #boot.loader.efi.canTouchEfiVariables = true;
   #boot.loader.grub.enable = lib.mkForce true;
   #boot.loader.grub.device = "nodev";

@@ -27,6 +27,5 @@
     };
 
     boot.loader.grub.gfxmodeEfi = "2560x1440";
-
   };
 }

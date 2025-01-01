@@ -45,20 +45,20 @@ in {
       session = {
         command = "${lib.getExe pkgs.uwsm} start hyprland-uwsm.desktop";
         user = "caek";
-      }; in {
-        enable = true;
-        settings = {
-          terminal.vt = 1;
-          default_session = session;
-          initial_session = session;
-        };
+      };
+    in {
+      enable = true;
+      settings = {
+        terminal.vt = 1;
+        default_session = session;
+        initial_session = session;
+      };
       #settings = {
       #  default_session = {
       #    command = "tuigreet --time --cmd 'Hyprland'";
       #    user = "greeter";
       #  };
       #};
-
     };
 
     #environment.etc."greetd/environments".text = ''

@@ -28,8 +28,8 @@ in {
       themeFile = "adwaita_dark";
 
       extraConfig = ''
-              map ctrl+shift+t new_tab_with_cwd
-              window_padding_width 4
+        map ctrl+shift+t new_tab_with_cwd
+        window_padding_width 4
       '';
     };
   };

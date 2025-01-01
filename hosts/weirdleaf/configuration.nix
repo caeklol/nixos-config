@@ -15,7 +15,6 @@
     inputs.metasearch.nixosModules.default
   ];
 
-
   config = {
     environment.systemPackages = with pkgs; [
       altserver-linux
@@ -77,7 +76,7 @@
           upstream_dns = [
             "127.0.0.1:5335"
           ];
-	  cache_size = 0;
+          cache_size = 0;
         };
         filtering = {
           protection_enabled = true;
@@ -91,16 +90,16 @@
 
     services.syncthing.enable = true;
     services.metasearch = {
-	enable = true;
-	openFirewall = true;
-	settings = {
-		image_search.enabled = true;
-		urls.replace = {
-			"www.reddit.com" = "old.reddit.com";
-			"medium.com" = "scribe.rip";
-			".medium.com" = "scribe.rip";
-		};
-	};
+      enable = true;
+      openFirewall = true;
+      settings = {
+        image_search.enabled = true;
+        urls.replace = {
+          "www.reddit.com" = "old.reddit.com";
+          "medium.com" = "scribe.rip";
+          ".medium.com" = "scribe.rip";
+        };
+      };
     };
 
     services.unbound = {
