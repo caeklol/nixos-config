@@ -31,7 +31,7 @@
 
               	  add_lsp(lspconfig.bashls, {})
               	  add_lsp(lspconfig.gopls, {})
-                  add_lsp(lspconfig.tsserver, {})
+                  add_lsp(lspconfig.ts_ls, {})
                   add_lsp(lspconfig.rust_analyzer, {})
 
               	  add_lsp(lspconfig.nixd, { settings = { nixd = {

@@ -10,21 +10,15 @@ in {
     enable = lib.mkEnableOption "enable neovim";
   };
 
-  imports = [
+  imports = lib.mkIf neovim.enable [
     ./lsps.nix
+    ./settings.nix
     ./syntaxes.nix
   ];
 
   config = lib.mkIf neovim.enable {
     programs.neovim = {
       enable = true;
-      extraLuaConfig = ''
-              vim.opt.tabstop = 4
-              vim.opt.shiftwidth = 4
-              vim.opt.expandtab = false
-              vim.g.mapleader = "\\"
-        vim.opt.relativenumber = true
-      '';
 
       plugins = with pkgs.vimPlugins; [
         vim-suda
@@ -65,10 +59,11 @@ in {
         }
 
         {
-          plugin = catppuccin-nvim;
+          plugin = material-nvim;
           type = "lua";
           config = ''
-            vim.cmd.colorscheme "catppuccin"
+            vim.g.material_style = "deep ocean"
+            vim.cmd.colorscheme "material"
           '';
         }
       ];
