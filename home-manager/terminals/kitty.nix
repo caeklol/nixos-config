@@ -16,8 +16,7 @@ in {
     programs.kitty = {
       enable = true;
       font = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrains Mono Nerd Font";
+        name = "JetBrainsMono Nerd Font";
         size = 13;
       };
 
@@ -26,11 +25,11 @@ in {
         enableZshIntegration = cfg.shells.zsh.enable;
       };
 
-      theme = "Catppuccin-Mocha";
+      themeFile = "adwaita_dark";
 
       extraConfig = ''
               map ctrl+shift+t new_tab_with_cwd
-        window_padding_width 4
+              window_padding_width 4
       '';
     };
   };
