@@ -8,7 +8,7 @@
 in {
   config = lib.mkIf enable {
     home.packages = with pkgs; [
-      gnome.gnome-tweaks
+      gnome-tweaks
 
       gnomeExtensions.zen
       gnomeExtensions.user-themes

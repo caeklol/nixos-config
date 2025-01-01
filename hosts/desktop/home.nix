@@ -1,7 +1,4 @@
 {
-  config,
-  inputs,
-  lib,
   pkgs,
   ...
 }: {
@@ -9,11 +6,10 @@
     ../../home-manager
     ../../home-manager/desktop
   ];
-
   config = {
     desktop = {
       enable = true;
-      env = "hyprland";
+      env = "gnome";
       wallpaper = builtins.path {
         path = ../../home-manager/desktop/wallpaper/leaves.png;
         name = "wallpaper";
@@ -54,7 +50,6 @@
       discord
       vesktop
 
-
       btop
       git
       neofetch
@@ -65,7 +60,7 @@
       gnupg
       gpg-tui
 
-      jetbrains.idea-community
+      #jetbrains.idea-community
       teams-for-linux
       tor-browser
       obs-studio

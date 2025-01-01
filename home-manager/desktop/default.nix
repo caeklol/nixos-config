@@ -54,11 +54,6 @@ in {
   config = {
     gtk = {
       enable = true;
-      cursorTheme = {
-        name = "macOS-Monterey";
-        package = pkgs.apple-cursor;
-        size = 24;
-      };
       font = {
         name = "SF Pro Display";
         package = inputs.apple-fonts.packages.${pkgs.system}.sf-pro;
@@ -96,6 +91,7 @@ in {
         pavucontrol
         pamixer
         loupe
+        nerd-fonts.jetbrains-mono
       ]
       ++ (
         if wayland
