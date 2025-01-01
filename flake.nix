@@ -14,6 +14,7 @@
 
     xmrig-switch.url = "github:caeklol/xmrig-switch";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
+    metasearch.url = "github:caeklol/metasearch2";
   };
 
   outputs = {

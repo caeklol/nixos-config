@@ -41,6 +41,18 @@
       "original": {
         "owner": "Lyndeno",
         "repo": "apple-fonts.nix",
+    "crane": {
+      "locked": {
+        "lastModified": 1729273024,
+        "narHash": "sha256-Mb5SemVsootkn4Q2IiY0rr9vrXdCCpQ9HnZeD/J3uXs=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "fa8b7445ddadc37850ed222718ca86622be01967",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
         "type": "github"
       }
     },
@@ -70,6 +82,7 @@
       "inputs": {
         "nixpkgs-lib": [
           "nur",
+          "metasearch",
           "nixpkgs"
         ]
       },
@@ -149,6 +162,26 @@
         "type": "github"
       }
     },
+    "metasearch": {
+      "inputs": {
+        "crane": "crane",
+        "flake-parts": "flake-parts",
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1735223207,
+        "narHash": "sha256-Ynj4F0KYxUEnCngVdKW+48HPoj4Wi6p51g8asDcoYdk=",
+        "owner": "caeklol",
+        "repo": "metasearch2",
+        "rev": "80fd332d12b9174c2d9898a683e3a6c7221dec70",
+        "type": "github"
+      },
+      "original": {
+        "owner": "caeklol",
+        "repo": "metasearch2",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1703013332,
@@ -167,6 +200,22 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1729265718,
+        "narHash": "sha256-4HQI+6LsO3kpWTYuVGIzhJs1cetFcwT7quWCk/6rqeo=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "ccc0c2126893dd20963580b6478d1a10a4512185",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1731319897,
         "narHash": "sha256-PbABj4tnbWFMfBp6OcUK5iGy1QY+/Z96ZcLpooIbuEI=",
         "owner": "nixos",
@@ -181,7 +230,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1735471104,
         "narHash": "sha256-0q9NGQySwDQc7RhAV2ukfnu7Gxa5/ybJ2ANT8DQrQrs=",
@@ -266,6 +315,7 @@
         "agenix": "agenix",
         "apple-fonts": "apple-fonts",
         "home-manager": "home-manager_2",
+        "metasearch": "metasearch",
         "nixpkgs": "nixpkgs_3",
         "nur": "nur",
         "stable": "stable",

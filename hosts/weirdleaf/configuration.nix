@@ -11,9 +11,15 @@
 
     ../common
     ../common/networking.nix
+
+    inputs.metasearch.nixosModules.default
   ];
 
+
   config = {
+    environment.systemPackages = with pkgs; [
+      altserver-linux
+    ];
     powerManagement.enable = false;
     systemd = {
       targets = {
@@ -38,7 +44,8 @@
 
     networking.firewall = {
       enable = true;
-      allowedTCPPorts = [3000 53 22289];
+      allowedTCPPorts = [22289];
+      allowedUDPPorts = [53]; # dns is udp..
     };
     hardware.asahi.peripheralFirmwareDirectory = ./firmware;
 
@@ -64,19 +71,13 @@
 
     services.adguardhome = {
       enable = true;
+      openFirewall = true;
       settings = {
-        http = {
-          # You can select any ip and port, just make sure to open firewalls where needed
-          address = "127.0.0.1:3000";
-        };
         dns = {
           upstream_dns = [
-            # Example config with quad9
-            # "9.9.9.9#dns.quad9.net"
-            # "149.112.112.112#dns.quad9.net"
             "127.0.0.1:5335"
           ];
-          cache_size = 0;
+	  cache_size = 0;
         };
         filtering = {
           protection_enabled = true;
@@ -86,6 +87,20 @@
           safe_search.enabled = false;
         };
       };
+    };
+
+    services.syncthing.enable = true;
+    services.metasearch = {
+	enable = true;
+	openFirewall = true;
+	settings = {
+		image_search.enabled = true;
+		urls.replace = {
+			"www.reddit.com" = "old.reddit.com";
+			"medium.com" = "scribe.rip";
+			".medium.com" = "scribe.rip";
+		};
+	};
     };
 
     services.unbound = {
@@ -100,7 +115,6 @@
           use-caps-for-id = false;
           prefetch = true;
           edns-buffer-size = 1232;
-
           hide-identity = true;
           hide-version = true;
         };
