@@ -11,6 +11,7 @@
 
     ../common
     ../common/networking.nix
+    ../common/insomnia.nix
 
     inputs.metasearch.nixosModules.default
   ];
@@ -19,27 +20,6 @@
     environment.systemPackages = with pkgs; [
       altserver-linux
     ];
-    powerManagement.enable = false;
-    systemd = {
-      targets = {
-        sleep = {
-          enable = false;
-          unitConfig.DefaultDependencies = "no";
-        };
-        suspend = {
-          enable = false;
-          unitConfig.DefaultDependencies = "no";
-        };
-        hibernate = {
-          enable = false;
-          unitConfig.DefaultDependencies = "no";
-        };
-        "hybrid-sleep" = {
-          enable = false;
-          unitConfig.DefaultDependencies = "no";
-        };
-      };
-    };
 
     networking.firewall = {
       enable = true;

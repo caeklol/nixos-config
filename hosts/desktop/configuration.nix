@@ -9,6 +9,7 @@
     ../common
     ../common/xmrig.nix
     ../common/mullvad.nix
+    ../common/insomnia.nix
     ../common/networking.nix
     ../common/virtualization.nix
     ../common/desktop
