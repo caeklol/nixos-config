@@ -10,7 +10,7 @@ in {
     enable = lib.mkEnableOption "enable neovim";
   };
 
-  imports = lib.mkIf neovim.enable [
+  imports = [
     ./lsps.nix
     ./settings.nix
     ./syntaxes.nix
