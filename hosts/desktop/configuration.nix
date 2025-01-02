@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{...}: {
   imports = [
     ./hardware-configuration.nix
 
@@ -11,6 +7,7 @@
     ../common/mullvad.nix
     ../common/insomnia.nix
     ../common/networking.nix
+    ../common/systemd-boot.nix
     ../common/virtualization.nix
     ../common/desktop
     ../common/desktop/audio.nix
@@ -26,7 +23,5 @@
     networking = {
       nameservers = ["1.1.1.1"];
     };
-
-    boot.loader.grub.gfxmodeEfi = "2560x1440";
   };
 }

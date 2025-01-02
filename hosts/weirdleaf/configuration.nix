@@ -1,7 +1,6 @@
 {
   config,
   inputs,
-  pkgs,
   lib,
   ...
 }: {
@@ -10,17 +9,14 @@
     ./apple-silicon-support
 
     ../common
-    ../common/networking.nix
+    ../common/grub.nix
     ../common/insomnia.nix
+    ../common/networking.nix
 
     inputs.metasearch.nixosModules.default
   ];
 
   config = {
-    environment.systemPackages = with pkgs; [
-      altserver-linux
-    ];
-
     networking.firewall = {
       enable = true;
       allowedTCPPorts = [22289];
@@ -30,8 +26,6 @@
 
     age.secrets.ratholeCredentials.file = ../../secrets/rathole.toml.age;
 
-    boot.loader.efi.canTouchEfiVariables = lib.mkForce false;
-    boot.loader.grub.gfxmodeEfi = "3456x2160";
     services.rathole = {
       enable = true;
       role = "client";
