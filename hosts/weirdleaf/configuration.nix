@@ -46,6 +46,7 @@
       enable = true;
       openFirewall = true;
       settings = {
+        enable_dnssec = false;
         dns = {
           upstream_dns = [
             "127.0.0.1:5335"
@@ -72,6 +73,16 @@
           "www.reddit.com" = "old.reddit.com";
           "medium.com" = "scribe.rip";
           ".medium.com" = "scribe.rip";
+        };
+
+        engines = {
+          brave = {
+            enabled = true;
+            weight = 0.1;
+          };
+
+          bing = false;
+          marginalia = false;
         };
       };
     };
