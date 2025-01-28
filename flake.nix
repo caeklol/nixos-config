@@ -14,6 +14,8 @@
 
     xmrig-switch.url = "github:caeklol/xmrig-switch";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
+
+    apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
     metasearch.url = "github:caeklol/metasearch2";
   };
 

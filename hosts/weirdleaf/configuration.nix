@@ -6,7 +6,6 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./apple-silicon-support
 
     ../common
     ../common/grub.nix
@@ -14,6 +13,7 @@
     ../common/networking.nix
 
     inputs.metasearch.nixosModules.default
+    inputs.apple-silicon.nixosModules.default
   ];
 
   config = {
