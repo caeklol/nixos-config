@@ -1,3 +1,4 @@
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMWKvF41g/7UF+yamHxY88OtPw2/r1qcpcvGFaFWOfWr caek@nixos
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJOO7yb3z1pFsv2+XkTc9Sv++K21X1fDrEDeElyw6dnA root@localhost
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBZ5AKZIdttmSOgztq/v7jmqhtmr/17mpK9KqsOYbk5+ caek@framework
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGmxx/CCQKgCygCmYp348hGRCjcduADx6uRrkiU0T2vm caek@pc-arch

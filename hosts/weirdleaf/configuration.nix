@@ -14,6 +14,7 @@
 
     inputs.metasearch.nixosModules.default
     inputs.apple-silicon.nixosModules.default
+    inputs.caek-dev.nixosModules.default
   ];
 
   config = {
@@ -32,15 +33,39 @@
       credentialsFile = config.age.secrets.ratholeCredentials.path;
       settings = {
         client = {
-          remote_addr = "172.233.75.141:2333";
+          remote_addr = "172.104.50.57:2333";
           services = {
-            minecraft_building = {
+            mc_java = {
+              local_addr = "0.0.0.0:22291";
+            };
+
+            mc_bedrock = {
+              local_addr = "0.0.0.0:19132";
+	      type = "udp";
+            };
+
+            continental_mc = {
+              local_addr = "0.0.0.0:22290";
+            };
+
+            rad2 = {
               local_addr = "0.0.0.0:22289";
+            };
+
+            caek_dev_https = {
+              local_addr = "0.0.0.0:443";
+            };
+
+            # let's encrypt
+            caek_dev_http = {
+              local_addr = "0.0.0.0:80";
             };
           };
         };
       };
     };
+
+    services.caddy.enable = true;
 
     services.adguardhome = {
       enable = true;

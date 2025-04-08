@@ -13,6 +13,7 @@
     agenix.url = "github:ryantm/agenix";
 
     xmrig-switch.url = "github:caeklol/xmrig-switch";
+    caek-dev.url = "github:caeklol/caek-dev";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
 
     apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
