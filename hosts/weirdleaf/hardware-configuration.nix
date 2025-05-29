@@ -26,6 +26,13 @@
     options = ["fmask=0022" "dmask=0022"];
   };
 
+  fileSystems."/dexterity-media" = {
+    device = "192.168.2.143:/volume1/arrs-media";
+    fsType = "nfs";
+  };
+
+  boot.supportedFilesystems = [ "nfs" ];
+
   swapDevices = [];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

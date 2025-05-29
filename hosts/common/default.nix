@@ -59,5 +59,5 @@
 
   systemd.services.NetworkManager-wait-online.enable = false;
 
-  system.stateVersion = "unstable";
+  system.stateVersion = "25.05";
 }

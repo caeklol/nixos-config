@@ -15,17 +15,31 @@
     inputs.metasearch.nixosModules.default
     inputs.apple-silicon.nixosModules.default
     inputs.caek-dev.nixosModules.default
+    inputs.nixarr.nixosModules.default
   ];
 
   config = {
     networking.firewall = {
       enable = true;
-      allowedTCPPorts = [22289];
+      allowedTCPPorts = [22289, 22270];
       allowedUDPPorts = [53]; # dns is udp..
     };
     hardware.asahi.peripheralFirmwareDirectory = ./firmware;
 
     age.secrets.ratholeCredentials.file = ../../secrets/rathole.toml.age;
+
+    nixarr = {
+	enable = true;
+	mediaDir = "/data/media";
+	stateDir = "/data/media/.state/nixarr";
+	bazarr.enable = true;
+	# lidarr.enable = true;
+	prowlarr.enable = true;
+	radarr.enable = true;
+	readarr.enable = true;
+	sonarr.enable = true;
+	jellyseerr.enable = true;
+    };
 
     services.rathole = {
       enable = true;
@@ -48,8 +62,17 @@
               local_addr = "0.0.0.0:22290";
             };
 
+            continental_vc = {
+              local_addr = "0.0.0.0:24454";
+	      type = "udp";
+            };
+
             rad2 = {
               local_addr = "0.0.0.0:22289";
+            };
+
+            rlcraft = {
+              local_addr = "0.0.0.0:22269";
             };
 
             caek_dev_https = {
@@ -63,6 +86,23 @@
           };
         };
       };
+    };
+	boot.loader.grub.useOSProber = lib.mkForce false;
+
+	services.caddy.virtualHosts = {
+		"plex.caek.dev".extraConfig = ''
+			reverse_proxy :32400
+		'';
+
+		"overseerr.caek.dev".extraConfig = ''
+			reverse_proxy 192.168.2.123:5055
+
+		'';
+	};
+
+    services.plex = {
+      enable = true;
+      openFirewall = true;
     };
 
     services.caddy.enable = true;

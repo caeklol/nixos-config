@@ -18,6 +18,7 @@
 
     apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
     metasearch.url = "github:caeklol/metasearch2";
+    nixarr.url = "github:rasmus-kirk/nixarr";
   };
 
   outputs = {
